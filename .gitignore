@@ -1,0 +1,28 @@
+# Local Claude Code settings (per-project preferences)
+.claude/
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# Env / secrets (keys live in M:\MORRIS_OPS\06_API_KEYS\ — outside this repo,
+# but exclude here in case anything ever lands)
+*.env
+.env
+.env.*
+secrets.txt
+elevenlabs.txt
+elevenlabs_voice.txt

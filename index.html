@@ -1,0 +1,1526 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Jamieson Rascal — The Greatest Homeschooled Kid Of All Time. Believe Me.</title>
+<style>
+  :root {
+    --gold: #f5c04a;
+    --red:  #c8102e;
+    --navy: #0a1b3d;
+    --ink:  #0b0b10;
+    --paper:#fff8ea;
+    --green:#2e7d32;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--ink); color: var(--paper); font-family: "Impact","Oswald","Arial Black",sans-serif; letter-spacing: .5px; overflow-x: hidden; }
+  a { color: var(--gold); }
+
+  /* === TICKER === */
+  .ticker {
+    position: sticky; top: 0; z-index: 50;
+    background: var(--red); color: #fff;
+    border-bottom: 5px solid var(--gold);
+    overflow: hidden; white-space: nowrap;
+    font-size: 28px; padding: 16px 0; letter-spacing: 1px;
+  }
+  .ticker-track { display: inline-block; padding-left: 100%; animation: marquee 38s linear infinite; }
+  .ticker span { margin: 0 48px; }
+  .ticker .hot { color: var(--gold); }
+  @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+
+  /* === HERO COLLAGE === */
+  .hero {
+    position: relative; min-height: 92vh; overflow: hidden;
+    background: radial-gradient(ellipse at top, #1b2a55 0%, #0a1b3d 55%, #050814 100%);
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    padding: 60px 24px;
+  }
+  .collage { position: absolute; inset: 0; pointer-events: none; }
+  .collage .pic {
+    position: absolute; border: 6px solid var(--paper);
+    box-shadow: 0 18px 40px rgba(0,0,0,.55), 0 2px 0 var(--gold);
+    background-size: cover; background-position: center;
+    animation: float 9s ease-in-out infinite;
+  }
+  .collage .p1 { top: 6%;  left: 4%;  width: 260px; height: 320px; transform: rotate(-8deg); animation-delay: 0s; }
+  .collage .p2 { top: 10%; right: 6%; width: 220px; height: 280px; transform: rotate(7deg);  animation-delay: 1.2s; }
+  .collage .p3 { bottom: 8%; left: 8%; width: 240px; height: 240px; transform: rotate(5deg);  animation-delay: 2.4s; }
+  .collage .p4 { bottom: 4%; right: 10%; width: 280px; height: 220px; transform: rotate(-6deg); animation-delay: 3.6s; }
+  .collage .p5 { top: 2%; left: 50%; width: 180px; height: 220px; transform: translateX(-50%) rotate(-3deg); animation-delay: 4.8s; }
+  @keyframes float { 0%,100% { translate: 0 0; } 50% { translate: 0 -14px; } }
+
+  .hero-inner {
+    position: relative; z-index: 2; text-align: center; max-width: 900px;
+    background: rgba(10,27,61,.72); backdrop-filter: blur(4px);
+    border: 3px solid var(--gold); padding: 38px 28px; border-radius: 6px;
+  }
+  .eyebrow { color: var(--gold); font-size: 14px; letter-spacing: 4px; }
+  h1 {
+    font-size: clamp(38px, 6vw, 86px); line-height: .95;
+    color: var(--paper); text-shadow: 0 4px 0 var(--red), 0 6px 14px rgba(0,0,0,.6);
+    margin: 10px 0 14px; text-transform: uppercase;
+  }
+  h1 .gold { color: var(--gold); }
+  .subtitle { font-size: clamp(16px, 2vw, 22px); font-family: "Georgia",serif; font-weight: bold; font-style: italic; color: #fff; }
+  .seal {
+    display: inline-block; margin-top: 18px; padding: 10px 22px;
+    border: 2px solid var(--gold); color: var(--gold);
+    font-size: 12px; letter-spacing: 5px; cursor: pointer;
+  }
+
+  section { padding: 72px 24px; position: relative; }
+  .wrap { max-width: 1100px; margin: 0 auto; }
+  h2 {
+    font-size: clamp(30px, 4vw, 56px); text-transform: uppercase; color: var(--gold);
+    border-bottom: 4px solid var(--red); padding-bottom: 10px; margin-bottom: 28px;
+  }
+  h3 { color: var(--paper); font-size: 22px; text-transform: uppercase; margin-bottom: 8px; letter-spacing: 1px; }
+  p  { font-family: "Georgia",serif; font-size: 17px; line-height: 1.55; color: #e9e6dd; margin-bottom: 12px; }
+  .quote {
+    font-family: "Georgia",serif; font-style: italic; font-size: 20px;
+    border-left: 5px solid var(--gold); padding: 14px 20px; background: rgba(255,255,255,.04);
+    color: #fff; margin: 18px 0;
+  }
+
+  /* STATS */
+  .stats { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 18px; }
+  .stat {
+    background: linear-gradient(180deg,#16244e,#0a1b3d); border: 2px solid var(--gold);
+    padding: 22px; text-align: center;
+  }
+  .stat .num { font-size: 60px; color: var(--gold); line-height: 1; }
+  .stat .lab { font-size: 15px; letter-spacing: 3px; margin-top: 6px; color: #fff; }
+
+  /* === XP / LEVEL SYSTEM === */
+  .xp-card {
+    background: linear-gradient(135deg,#0a1b3d,#1b2a55 60%,#0a1b3d);
+    border: 4px solid var(--gold);
+    padding: 32px; position: relative; overflow: hidden;
+    box-shadow: 0 0 40px rgba(245,192,74,.15);
+  }
+  .xp-card::before {
+    content: ""; position: absolute; inset: 0;
+    background: repeating-linear-gradient(45deg, transparent 0 40px, rgba(245,192,74,.04) 40px 80px);
+    pointer-events: none;
+  }
+  .xp-head { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 12px; margin-bottom: 16px; }
+  .xp-title { font-size: 31px; color: var(--gold); letter-spacing: 3px; }
+  .level-box { text-align: right; }
+  .level-box .lvl-num { font-size: 80px; line-height: 1; color: var(--paper); text-shadow: 0 3px 0 var(--red); }
+  .level-box .lvl-cap { color: var(--gold); letter-spacing: 4px; font-size: 16px; }
+  .xp-bar-outer {
+    height: 36px; background: #000; border: 3px solid var(--gold); border-radius: 4px;
+    position: relative; overflow: hidden;
+  }
+  .xp-bar-inner {
+    height: 100%; background: linear-gradient(90deg, var(--red), var(--gold));
+    width: 0; transition: width .8s cubic-bezier(.2,.9,.2,1);
+    box-shadow: 0 0 20px var(--gold);
+  }
+  .xp-bar-label {
+    position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+    color: #fff; letter-spacing: 3px; font-size: 16px; text-shadow: 0 1px 2px #000;
+  }
+  .xp-meta {
+    display: grid; grid-template-columns: repeat(auto-fit,minmax(170px,1fr)); gap: 12px; margin-top: 20px;
+  }
+  .xp-cell { background: rgba(0,0,0,.35); border: 2px solid var(--gold); padding: 14px; text-align: center; }
+  .xp-cell .v { color: var(--gold); font-size: 31px; }
+  .xp-cell .k { color: #fff; letter-spacing: 2px; font-size: 13px; margin-top: 4px; }
+
+  .level-pips { display: grid; grid-template-columns: repeat(50, 1fr); gap: 3px; margin-top: 20px; }
+  .pip { height: 10px; background: #1a1a22; border-radius: 1px; }
+  .pip.done { background: var(--gold); box-shadow: 0 0 4px var(--gold); }
+
+  /* LEGO SHOWCASE */
+  .lego-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap: 14px; }
+  .brick {
+    background: var(--red); color: #fff; padding: 28px 14px; text-align: center;
+    border-radius: 6px; position: relative; font-size: 14px; letter-spacing: 2px;
+    box-shadow: inset 0 -8px 0 rgba(0,0,0,.25);
+    transition: transform .25s ease;
+  }
+  .brick::before {
+    content: ""; position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
+    width: 28px; height: 18px; background: inherit; border-radius: 50%;
+    box-shadow: -38px 0 0 var(--red), 38px 0 0 var(--red);
+  }
+  .brick:hover { transform: translateY(-4px) rotate(-1deg); }
+  .brick.blue  { background: #1565c0; } .brick.blue::before   { box-shadow: -38px 0 0 #1565c0, 38px 0 0 #1565c0; background:#1565c0; }
+  .brick.green { background: var(--green); } .brick.green::before  { box-shadow: -38px 0 0 var(--green), 38px 0 0 var(--green); background:var(--green); }
+  .brick.yellow{ background: #f9a825; color: #000; } .brick.yellow::before { box-shadow: -38px 0 0 #f9a825, 38px 0 0 #f9a825; background:#f9a825; }
+  .brick.black { background: #222; } .brick.black::before  { box-shadow: -38px 0 0 #222, 38px 0 0 #222; background:#222; }
+
+  /* ARMOR OF GOD */
+  .armor-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: center; }
+  .armor-list { display: grid; gap: 10px; }
+  .armor-btn {
+    background: #1b2a55; border: 2px solid var(--gold); color: var(--paper);
+    padding: 14px 16px; text-align: left; font-family: inherit; font-size: 16px;
+    text-transform: uppercase; letter-spacing: 2px; cursor: pointer; transition: all .2s;
+  }
+  .armor-btn:hover, .armor-btn.equipped { background: var(--gold); color: var(--ink); }
+  .armor-display {
+    min-height: 320px; background: #0a1b3d; border: 3px solid var(--gold);
+    padding: 24px; position: relative;
+  }
+  .armor-display h4 { color: var(--gold); font-size: 22px; text-transform: uppercase; margin-bottom: 10px; }
+  .armor-display .verse { font-family: "Georgia",serif; font-style: italic; color: #fff; font-size: 18px; line-height: 1.5; }
+  .armor-display .ref { display: block; margin-top: 10px; color: var(--gold); font-family: inherit; letter-spacing: 3px; font-size: 12px; }
+  .latin-block {
+    margin-top: 16px; padding: 12px 14px;
+    background: rgba(245,192,74,.07); border-left: 4px solid var(--gold);
+  }
+  .latin-name {
+    color: var(--gold); font-family: inherit; letter-spacing: 4px;
+    font-size: 15px; margin-bottom: 6px;
+  }
+  .latin-meaning {
+    color: #e9e6dd; font-family: "Georgia",serif;
+    font-size: 14px; line-height: 1.5;
+  }
+  .armor-progress { margin-top: 14px; height: 14px; border: 2px solid var(--gold); background: #000; }
+  .armor-progress > div { height: 100%; background: var(--red); width: 0; transition: width .4s; }
+
+  /* ARMOR RACK */
+  .armor-rack {
+    margin-top: 18px; background: linear-gradient(180deg,#0a1b3d,#050814);
+    border: 2px solid var(--gold); padding: 20px;
+    display: flex; justify-content: center; align-items: flex-start;
+    position: relative; min-height: 360px;
+  }
+  .armor-rack::before {
+    content: "★ RASCAL'S ARMOR RACK ★"; position: absolute; top: 8px; left: 50%;
+    transform: translateX(-50%); color: var(--gold); font-size: 12px; letter-spacing: 4px;
+  }
+  .rack-figure { position: relative; width: 260px; height: 370px; margin-top: 24px; }
+  .rack-figure::after {
+    content: ""; position: absolute; left: 50%; bottom: -16px; transform: translateX(-50%);
+    width: 200px; height: 10px; background: #3a2b14; border-radius: 50%;
+    box-shadow: 0 2px 0 #1a1208;
+  }
+  .slot {
+    position: absolute; cursor: pointer; user-select: none; color: #4a3d2e;
+    transition: transform .35s cubic-bezier(.3,1.4,.5,1), filter .35s, color .35s;
+    filter: grayscale(.85) brightness(.55);
+  }
+  .slot svg { width: 100%; height: 100%; display: block; overflow: visible; }
+  .slot::after {
+    content: attr(data-label); position: absolute; bottom: -18px; left: 50%;
+    transform: translateX(-50%); font-size: 9px; letter-spacing: 2px;
+    color: #666; white-space: nowrap;
+  }
+  .slot.on {
+    color: var(--gold);
+    filter: drop-shadow(0 0 12px rgba(245,192,74,.7));
+    transform: scale(1.06);
+  }
+  .slot.on::after { color: var(--gold); }
+  .slot[data-k="helmet"]      { top: 0;    left: 98px; width: 64px; height: 64px; }
+  .slot[data-k="breastplate"] { top: 70px; left: 80px; width: 100px; height: 100px; }
+  .slot[data-k="belt"]        { top: 180px; left: 80px; width: 100px; height: 22px; }
+  .slot[data-k="shoes"]       { top: 300px; left: 80px; width: 100px; height: 44px; }
+  .slot[data-k="shield"]      { top: 98px;  left: 4px; width: 62px; height: 80px; }
+  .slot[data-k="sword"]       { top: 80px;  right: 6px; width: 32px; height: 150px; }
+
+  /* CALCULATOR */
+  .calc {
+    background: linear-gradient(180deg,#1b2a55,#0a1b3d);
+    border: 3px solid var(--gold); padding: 28px; text-align: center;
+  }
+  .calc input {
+    font-family: inherit; font-size: 26px; width: 140px; text-align: center;
+    padding: 10px; border: 3px solid var(--gold); background: #000; color: var(--gold);
+  }
+  .calc button {
+    font-family: inherit; font-size: 18px; letter-spacing: 3px; padding: 12px 22px;
+    background: var(--red); color: #fff; border: 3px solid var(--gold);
+    margin-left: 8px; cursor: pointer; text-transform: uppercase;
+  }
+  .calc .verdict {
+    margin-top: 22px; min-height: 80px; font-family: "Georgia",serif; font-size: 20px;
+    color: var(--paper); font-style: italic;
+  }
+
+  /* BUILT LIST */
+  .built-list { display: grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap: 10px; }
+  .built {
+    background: rgba(46,125,50,.18); border: 2px solid var(--green);
+    padding: 12px 14px; font-size: 14px; letter-spacing: 1px;
+    display: flex; justify-content: space-between; align-items: center; gap: 8px;
+  }
+  .built .name { color: var(--paper); }
+  .built .num  { color: var(--gold); font-size: 11px; letter-spacing: 2px; }
+
+  /* ADD KIT — hidden collapse */
+  .add-kit {
+    margin-top: 40px; border-top: 1px dashed #444; padding-top: 30px;
+  }
+  .add-kit summary {
+    cursor: pointer; font-size: 12px; letter-spacing: 4px; color: #666;
+    padding: 8px 0; list-style: none; user-select: none;
+  }
+  .add-kit summary::-webkit-details-marker { display: none; }
+  .add-kit summary:hover { color: var(--gold); }
+  .add-kit[open] summary { color: var(--gold); }
+  .add-form {
+    margin-top: 14px; display: grid; grid-template-columns: 2fr 1fr 1fr auto; gap: 10px;
+  }
+  .add-form input, .add-form select {
+    background: #000; border: 2px solid var(--gold); color: var(--gold);
+    padding: 10px 12px; font-family: inherit; font-size: 14px; letter-spacing: 2px;
+  }
+  .add-form button {
+    background: var(--red); color: #fff; border: 2px solid var(--gold);
+    font-family: inherit; padding: 10px 18px; letter-spacing: 3px; cursor: pointer;
+  }
+  .add-form button:hover { background: var(--gold); color: var(--ink); }
+  @media (max-width:700px) { .add-form { grid-template-columns: 1fr; } }
+
+  /* === CHECKLIST CHART === */
+  .checklist-head {
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 14px; margin-bottom: 22px;
+  }
+  .filter-bar { display: flex; gap: 8px; flex-wrap: wrap; }
+  .filter-btn {
+    background: transparent; border: 2px solid var(--gold); color: var(--gold);
+    font-family: inherit; padding: 8px 14px; font-size: 12px; letter-spacing: 2px;
+    cursor: pointer; text-transform: uppercase;
+  }
+  .filter-btn.active, .filter-btn:hover { background: var(--gold); color: var(--ink); }
+
+  .kit-theme { margin-top: 26px; }
+  .kit-theme h3 {
+    font-size: 18px; color: var(--gold); letter-spacing: 3px;
+    border-left: 5px solid var(--red); padding-left: 12px; margin-bottom: 10px;
+  }
+  .kit-row {
+    display: flex; align-items: center; gap: 12px;
+    padding: 10px 12px; border-bottom: 1px solid #1c1c28;
+    cursor: pointer; transition: background .15s;
+    font-size: 14px;
+  }
+  .kit-row:hover { background: rgba(245,192,74,.05); }
+  .kit-row.done  { opacity: .38; text-decoration: line-through; }
+  .kit-row.done .chk { background: var(--green); border-color: var(--green); color: #fff; }
+  .chk {
+    flex: 0 0 26px; width: 26px; height: 26px; border: 2px solid var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; color: transparent;
+  }
+  .kit-row.done .chk::before { content: "✓"; color: #fff; }
+  .kit-name { flex: 1; color: var(--paper); letter-spacing: 1px; }
+  .kit-num  { color: var(--gold); font-size: 11px; letter-spacing: 2px; flex: 0 0 auto; }
+  .kit-year { color: #888; font-size: 11px; letter-spacing: 2px; flex: 0 0 54px; text-align: right; }
+
+  /* PODIUM SPEAK BUTTON */
+  .quote-row { position: relative; }
+  .quote-row .quote { padding-right: 76px; }
+  .speak-btn {
+    position: absolute; top: 14px; right: 12px;
+    background: var(--gold); color: var(--ink);
+    border: 3px solid var(--red); width: 50px; height: 50px;
+    border-radius: 50%; font-size: 22px; cursor: pointer;
+    box-shadow: 0 5px 12px rgba(0,0,0,.5);
+    transition: transform .15s, background .2s;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .speak-btn:hover { transform: scale(1.1); }
+  .speak-btn.playing { background: var(--red); color: #fff; animation: pulse 1s infinite; }
+  @keyframes pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(200,16,46,.7); } 50% { box-shadow: 0 0 0 12px rgba(200,16,46,0); } }
+
+  /* PIECE TALLY */
+  .piece-tally {
+    padding: 80px 20px 100px; text-align: center;
+    background: radial-gradient(ellipse at center, #0a1b3d 0%, #050814 75%);
+    border-top: 4px solid var(--gold); border-bottom: 4px solid var(--gold);
+  }
+  .piece-tally h2 { border: none; padding: 0; margin: 0 0 8px; display: inline-block; }
+  .piece-tally .tally-number {
+    font-family: "Impact","Oswald",sans-serif;
+    font-size: clamp(96px, 24vw, 320px);
+    color: var(--gold);
+    line-height: .9;
+    letter-spacing: -4px;
+    text-shadow: 0 10px 0 var(--red), 0 14px 30px rgba(0,0,0,.7);
+    margin: 20px 0;
+  }
+  .piece-tally .tally-label {
+    font-size: clamp(18px, 3vw, 36px); color: #fff;
+    letter-spacing: 5px; margin-top: 10px;
+  }
+  .piece-tally .tally-sub {
+    color: #fff; opacity: .75; font-family: Georgia,serif; font-style: italic;
+    font-size: 18px; margin-top: 4px;
+  }
+
+  /* KIT NUMBER LINK */
+  .kit-num { color: var(--gold); text-decoration: none; transition: color .15s; }
+  .kit-num:hover { color: #fff; text-decoration: underline; }
+
+  /* MOTTO STRIP */
+  .motto {
+    background: var(--gold); color: var(--ink); padding: 30px 20px; text-align: center;
+    font-size: clamp(22px, 3vw, 40px); text-transform: uppercase;
+    border-top: 4px solid var(--red); border-bottom: 4px solid var(--red);
+  }
+
+  footer { background: #000; padding: 40px 20px; text-align: center; color: #888; font-family: "Georgia",serif; font-size: 13px; }
+  footer .seal2 { color: var(--gold); letter-spacing: 4px; font-family: inherit; margin-bottom: 10px; }
+
+  /* LEGO RAIN */
+  #rain { position: fixed; inset: 0; pointer-events: none; z-index: 90; overflow: hidden; }
+  .falling {
+    position: absolute; top: -60px; width: 46px; height: 30px; border-radius: 4px;
+    box-shadow: inset 0 -6px 0 rgba(0,0,0,.3);
+  }
+
+  /* LEVEL UP TOAST */
+  .toast {
+    position: fixed; top: 24px; left: 50%; transform: translateX(-50%) translateY(-80px);
+    background: var(--gold); color: var(--ink); padding: 16px 28px;
+    border: 4px solid var(--red); z-index: 100;
+    font-size: 22px; letter-spacing: 3px; text-transform: uppercase;
+    box-shadow: 0 10px 40px rgba(0,0,0,.6);
+    transition: transform .5s cubic-bezier(.2,.9,.2,1);
+  }
+  .toast.show { transform: translateX(-50%) translateY(0); }
+
+  /* MARIO PIPE BOT */
+  .pipe-host {
+    position: fixed; width: 88px; height: 130px; z-index: 45;
+    pointer-events: none; opacity: 0;
+    transition: opacity .35s ease;
+    filter: drop-shadow(0 6px 10px rgba(0,0,0,.55));
+  }
+  .pipe-host.show { opacity: 1; }
+  .mario-char {
+    position: absolute; left: 12px; bottom: 52px;
+    width: 64px; height: 64px;
+    transform: translateY(72px);
+    transition: transform .55s cubic-bezier(.3,1.6,.5,1);
+    image-rendering: pixelated;
+    background-repeat: no-repeat; background-size: contain;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' shape-rendering='crispEdges'><rect x='4' y='1' width='8' height='3' fill='%23e52521'/><rect x='3' y='2' width='10' height='2' fill='%23e52521'/><rect x='7' y='2' width='2' height='1' fill='%23fff'/><rect x='3' y='4' width='2' height='2' fill='%233b2816'/><rect x='11' y='4' width='2' height='2' fill='%233b2816'/><rect x='5' y='4' width='6' height='4' fill='%23f5c38a'/><rect x='6' y='5' width='1' height='2' fill='%23000'/><rect x='9' y='5' width='1' height='2' fill='%23000'/><rect x='5' y='7' width='6' height='1' fill='%233b2816'/><rect x='6' y='8' width='4' height='1' fill='%233b2816'/><rect x='4' y='9' width='8' height='4' fill='%231d4ed8'/><rect x='7' y='9' width='2' height='4' fill='%23facc15'/></svg>");
+  }
+  .pipe-host.peek .mario-char { transform: translateY(0); }
+  .pipe {
+    position: absolute; bottom: 0; left: 0;
+    width: 80px; height: 52px; background: #2e7d32;
+    box-shadow: inset -10px 0 0 #1b5e20, inset 10px 0 0 #4caf50;
+  }
+  .pipe::before {
+    content: ""; position: absolute; top: -14px; left: -8px;
+    width: 96px; height: 20px; background: #2e7d32;
+    box-shadow: inset -10px 0 0 #1b5e20, inset 10px 0 0 #4caf50, 0 4px 0 #1b5e20;
+    border-radius: 3px;
+  }
+  .mario-bubble {
+    position: absolute; bottom: 118px; left: 50%; transform: translateX(-50%) scale(0);
+    background: #fff; color: #111; padding: 6px 10px; border: 3px solid #111;
+    border-radius: 8px; font-family: "Impact",sans-serif; letter-spacing: 1px;
+    font-size: 12px; white-space: nowrap;
+    transition: transform .3s cubic-bezier(.3,1.6,.5,1);
+  }
+  .mario-bubble::after {
+    content: ""; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%);
+    border: 6px solid transparent; border-top-color: #111;
+  }
+  .pipe-host.peek .mario-bubble { transform: translateX(-50%) scale(1); }
+
+  /* DIRT BIKE CRUISE */
+  .bike {
+    position: fixed; bottom: 10px; left: -200px; font-size: 60px; z-index: 40;
+    animation: ride 22s linear infinite; pointer-events: none;
+    filter: drop-shadow(0 6px 8px rgba(0,0,0,.6));
+    transform: scaleX(-1);
+  }
+  @keyframes ride { 0% { left: -200px; } 50% { left: calc(100% + 200px); } 100% { left: calc(100% + 200px); } }
+
+  @media (max-width: 720px) {
+    .armor-wrap { grid-template-columns: 1fr; }
+    .collage .pic { width: 45vw !important; height: 55vw !important; }
+    .collage .p5 { display: none; }
+    .level-pips { grid-template-columns: repeat(25, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="hot">★ BREAKING ★</span>
+    <span>JAMIESON RASCAL — BENCH PRESSING HIS OWN BODYWEIGHT. AT 9. NOBODY DOES THIS.</span>
+    <span class="hot">★</span>
+    <span>13-MINUTE MILE. LEGS LIKE PISTONS. TREMENDOUS.</span>
+    <span class="hot">★</span>
+    <span>100 ON EVERY TEST. EVEN THE COMPLEX MATH. THE COMPLEX STUFF, FOLKS.</span>
+    <span class="hot">★</span>
+    <span>ARMOR OF GOD — MEMORIZED. ALL OF IT. WORD FOR WORD.</span>
+    <span class="hot">★</span>
+    <span>MARKSMAN. DIRT BIKE CHAMPION. LEGO ENGINEER. NOBODY ELSE COMES CLOSE.</span>
+    <span class="hot">★</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="collage">
+    <div class="pic p1" style="background-image:url('486074470_2710094535866852_3072362848818517002_n.jpg')"></div>
+    <div class="pic p2" style="background-image:url('486520366_2710212355855070_5672057938620071556_n.jpg')"></div>
+    <div class="pic p3" style="background-image:url('486679889_2711020409107598_2855035459255971057_n.jpg')"></div>
+    <div class="pic p4" style="background-image:url('486681544_2711026019107037_1073332477564883914_n.jpg')"></div>
+    <div class="pic p5" style="background-image:url('502568373_2783818711827767_39351133254780732_n.jpg')"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="eyebrow">★ OFFICIAL DECLARATION ★ HOMESCHOOL EDITION ★</div>
+    <h1>Jamieson <span class="gold">Rascal</span><br/>The Greatest Kid<br/>Of All Time.</h1>
+    <p class="subtitle">"Folks, I've seen a lot of kids. I've known kids — great kids.<br/>
+    This one? This one is different. This one is special. Believe me."</p>
+    <div class="seal" id="seal">★ EST. 03 · 01 · 2017 ★ TRIPLE-CLICK FOR BRICK RAIN ★</div>
+  </div>
+</header>
+
+<!-- WHY HE'S THE BEST -->
+<section style="background:#0a1b3d">
+  <div class="wrap">
+    <h2>Why He's The Best</h2>
+    <p class="quote">"You know what nobody's talking about? This kid. This kid is doing things — unbelievable things — that most grown men can't do. Homeschooled. A genius, really. A total winner."</p>
+    <div class="stats">
+      <div class="stat"><div class="num" data-count="100">0</div><div class="lab">Average Score · Every Subject</div></div>
+      <div class="stat"><div class="num" data-count="13">0</div><div class="lab">Minute Mile · Sub-Teen Elite</div></div>
+      <div class="stat"><div class="num" data-count="1">0</div><div class="lab">× Bodyweight · Bench &amp; Deadlift</div></div>
+      <div class="stat"><div class="num" data-count="6">0</div><div class="lab">Pieces Of Armor · Memorized</div></div>
+      <div class="stat"><div class="num" data-count="9">0</div><div class="lab">Years Old · And Already Winning</div></div>
+      <div class="stat"><div class="num" id="statKitLive" data-count="0">0</div><div class="lab">Lego Kits Built · Live Count</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- === XP / LEVEL SYSTEM === -->
+<section style="background:linear-gradient(180deg,#0b0b10,#0a1b3d)">
+  <div class="wrap">
+    <h2>The Rascal Level System</h2>
+    <p>One brick at a time. Every completed LEGO kit from 2019 to now = +1 level. Cap? <strong style="color:var(--gold)">Level 100.</strong> To reach max, he has to finish every single set on the list. Tremendous goal. Achievable? Only for him.</p>
+
+    <div class="xp-card">
+      <div class="xp-head">
+        <div>
+          <div class="xp-title">★ RASCAL · LEVEL</div>
+          <p style="font-family:inherit;letter-spacing:3px;color:#fff;font-size:12px;margin-top:4px">CLASS: LEGO MASTER · HOMESCHOOL ELITE</p>
+        </div>
+        <div class="level-box">
+          <div class="lvl-num" id="lvlNum">0</div>
+          <div class="lvl-cap">/ 100 MAX</div>
+        </div>
+      </div>
+      <div class="xp-bar-outer">
+        <div class="xp-bar-inner" id="xpBar"></div>
+        <div class="xp-bar-label" id="xpLabel">0 / 100 XP</div>
+      </div>
+      <div class="xp-meta">
+        <div class="xp-cell"><div class="v" id="metaBuilt">0</div><div class="k">Kits Built</div></div>
+        <div class="xp-cell"><div class="v" id="metaLeft">100</div><div class="k">Kits Remaining</div></div>
+        <div class="xp-cell"><div class="v" id="metaPct">0%</div><div class="k">Completion</div></div>
+        <div class="xp-cell"><div class="v" id="metaNext">—</div><div class="k">Next Level Target</div></div>
+      </div>
+      <div class="level-pips" id="pips" aria-label="level progress pips"></div>
+    </div>
+  </div>
+</section>
+
+<!-- HIS BUILT LIST -->
+<section style="background:#0b0b10">
+  <div class="wrap">
+    <h2>Builds On The Board</h2>
+    <p class="quote">"The kid has built more sets than most toy stores have on the shelf. And they're not easy ones. The tough ones. The ones with, you know, a million pieces. Unbelievable."</p>
+    <div class="built-list" id="builtList"></div>
+  </div>
+</section>
+
+<!-- LEGO EMPIRE THEMES -->
+<section style="background:#0a1b3d">
+  <div class="wrap">
+    <h2>The Lego Empire</h2>
+    <p>Tiger tank? Built it. Iron Spider-Man bust? Crushed it. Monster Jam trucks? Whole garage. Ferris wheel? Spinning. Sushi stand? Open for business. Nobody builds like this. Nobody.</p>
+    <div class="lego-grid" style="margin-top:22px">
+      <div class="brick">Iron Spider-Man Bust</div>
+      <div class="brick blue">Spider-Man Mech</div>
+      <div class="brick yellow">Super Mario · Interactive</div>
+      <div class="brick green">Majestic Tiger</div>
+      <div class="brick">Monster Jam · Megalodon</div>
+      <div class="brick black">Monster Jam · Dragon</div>
+      <div class="brick blue">Ferrari 812 Competizione</div>
+      <div class="brick yellow">Minecraft Nether Portal</div>
+      <div class="brick green">NRG Dragon · Ninjago</div>
+      <div class="brick">Shark Ship · Ninjago</div>
+      <div class="brick blue">Ferris Wheel</div>
+      <div class="brick yellow">Snail Garden</div>
+    </div>
+  </div>
+</section>
+
+<!-- ARMOR OF GOD -->
+<section style="background:linear-gradient(180deg,#0a1b3d,#0b0b10)">
+  <div class="wrap">
+    <h2>Armor Of God · Suit Up</h2>
+    <p class="quote">"He knows these — every piece, every verse. Word for word. Click a piece. You'll see. Tremendous memory. The best memory. Honestly, better than most senators."</p>
+    <div class="armor-wrap">
+      <div>
+        <div class="armor-list" id="armorList">
+          <button class="armor-btn" data-k="belt">🎗️ Belt Of Truth</button>
+          <button class="armor-btn" data-k="breastplate">🛡️ Breastplate Of Righteousness</button>
+          <button class="armor-btn" data-k="shoes">👟 Shoes Of The Gospel Of Peace</button>
+          <button class="armor-btn" data-k="shield">🛡 Shield Of Faith</button>
+          <button class="armor-btn" data-k="helmet">⛑️ Helmet Of Salvation</button>
+          <button class="armor-btn" data-k="sword">⚔️ Sword Of The Spirit</button>
+        </div>
+
+        <div class="armor-rack" aria-label="Armor rack">
+          <div class="rack-figure" id="rackFigure">
+
+            <div class="slot" data-k="helmet" data-label="GALEA">
+              <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22,4 Q32,0 42,4 L40,14 L24,14 Z" fill="#8b0000"/>
+                <path d="M24,1 V14 M28,0 V14 M32,0 V14 M36,0 V14 M40,1 V14" stroke="#c8102e" stroke-width="1.3"/>
+                <path d="M14,32 Q14,14 32,14 Q50,14 50,32 L50,34 L14,34 Z" fill="currentColor"/>
+                <rect x="12" y="28" width="40" height="4" fill="currentColor" opacity=".75"/>
+                <path d="M14,34 Q12,46 20,50 L24,46 L24,34 Z" fill="currentColor"/>
+                <path d="M50,34 Q52,46 44,50 L40,46 L40,34 Z" fill="currentColor"/>
+                <rect x="24" y="32" width="16" height="16" fill="#000" opacity=".55"/>
+                <path d="M12,40 Q32,56 52,40 L50,48 Q32,60 14,48 Z" fill="currentColor" opacity=".8"/>
+              </svg>
+            </div>
+
+            <div class="slot" data-k="breastplate" data-label="LORICA">
+              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10,15 L25,5 L40,18 L40,25 L10,25 Z" fill="currentColor"/>
+                <path d="M90,15 L75,5 L60,18 L60,25 L90,25 Z" fill="currentColor"/>
+                <path d="M12,22 Q10,68 50,75 Q90,68 88,22 L74,20 Q62,26 50,26 Q38,26 26,20 Z" fill="currentColor"/>
+                <path d="M32,32 Q38,50 32,66 M68,32 Q62,50 68,66" stroke="#000" stroke-width="1.2" fill="none" opacity=".35"/>
+                <circle cx="40" cy="44" r="3" fill="#000" opacity=".3"/>
+                <circle cx="60" cy="44" r="3" fill="#000" opacity=".3"/>
+                <path d="M50,32 V68 M42,52 H58" stroke="#000" stroke-width="1" fill="none" opacity=".3"/>
+                <g fill="#6b4a25">
+                  <rect x="10" y="76" width="10" height="18" rx="2"/>
+                  <rect x="23" y="76" width="10" height="20" rx="2"/>
+                  <rect x="36" y="76" width="10" height="19" rx="2"/>
+                  <rect x="49" y="76" width="10" height="20" rx="2"/>
+                  <rect x="62" y="76" width="10" height="19" rx="2"/>
+                  <rect x="75" y="76" width="10" height="18" rx="2"/>
+                </g>
+              </svg>
+            </div>
+
+            <div class="slot" data-k="belt" data-label="CINGULUM">
+              <svg viewBox="0 0 100 22" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                <rect x="0" y="5" width="100" height="12" fill="#6b4a25"/>
+                <rect x="0" y="5" width="100" height="12" fill="none" stroke="#3e2814" stroke-width="1"/>
+                <g fill="currentColor">
+                  <rect x="8" y="6" width="5" height="10"/>
+                  <rect x="20" y="6" width="5" height="10"/>
+                  <rect x="32" y="6" width="5" height="10"/>
+                  <rect x="62" y="6" width="5" height="10"/>
+                  <rect x="74" y="6" width="5" height="10"/>
+                  <rect x="86" y="6" width="5" height="10"/>
+                </g>
+                <rect x="46" y="2" width="8" height="18" fill="currentColor"/>
+                <rect x="48" y="6" width="4" height="10" fill="#000" opacity=".45"/>
+              </svg>
+            </div>
+
+            <div class="slot" data-k="shoes" data-label="CALIGAE">
+              <svg viewBox="0 0 100 44" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5,26 Q5,18 18,18 L82,18 Q95,18 95,26 L90,38 Q80,42 50,42 Q20,42 10,38 Z" fill="#6b4a25"/>
+                <path d="M20,18 L35,4 L50,18 L65,4 L80,18" stroke="#5a3a1c" stroke-width="2.5" fill="none"/>
+                <path d="M26,12 L74,12" stroke="#5a3a1c" stroke-width="2.5" fill="none"/>
+                <rect x="15" y="8" width="70" height="4" fill="#3e2814"/>
+                <g fill="currentColor">
+                  <circle cx="15" cy="36" r="1.8"/>
+                  <circle cx="28" cy="36" r="1.8"/>
+                  <circle cx="41" cy="36" r="1.8"/>
+                  <circle cx="54" cy="36" r="1.8"/>
+                  <circle cx="67" cy="36" r="1.8"/>
+                  <circle cx="80" cy="36" r="1.8"/>
+                </g>
+              </svg>
+            </div>
+
+            <div class="slot" data-k="shield" data-label="SCUTUM">
+              <svg viewBox="0 0 62 80" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6,6 Q31,0 56,6 L56,74 Q31,80 6,74 Z" fill="#8b0000"/>
+                <path d="M6,22 Q31,17 56,22 M6,58 Q31,63 56,58" stroke="#5a0000" stroke-width="1.2" fill="none"/>
+                <path d="M31,28 Q15,34 10,24 M31,28 Q47,34 52,24" stroke="currentColor" stroke-width="1.8" fill="none"/>
+                <path d="M28,32 L34,40 L30,42 L36,52" stroke="currentColor" stroke-width="2" fill="none"/>
+                <circle cx="31" cy="42" r="8" fill="currentColor"/>
+                <circle cx="31" cy="42" r="4" fill="#000" opacity=".45"/>
+                <path d="M6,6 Q31,0 56,6 L56,74 Q31,80 6,74 Z" fill="none" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </div>
+
+            <div class="slot" data-k="sword" data-label="GLADIUS">
+              <svg viewBox="0 0 32 150" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="16" cy="12" r="7" fill="currentColor"/>
+                <circle cx="16" cy="12" r="3" fill="#000" opacity=".3"/>
+                <rect x="11" y="18" width="10" height="24" fill="#6b4a25"/>
+                <path d="M11,22 H21 M11,26 H21 M11,30 H21 M11,34 H21 M11,38 H21" stroke="#3e2814" stroke-width="1"/>
+                <rect x="4" y="42" width="24" height="6" fill="currentColor"/>
+                <path d="M10,48 Q8,100 16,140 Q24,100 22,48 Z" fill="currentColor"/>
+                <path d="M16,52 V136" stroke="#000" stroke-width="1" opacity=".35"/>
+              </svg>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="armor-display" id="armorDisplay">
+        <h4>Suit Up, Soldier.</h4>
+        <div class="verse">"Put on the full armor of God, so that you can take your stand against the devil's schemes."</div>
+        <span class="ref">— Ephesians 6:11</span>
+        <div class="armor-progress"><div id="armorBar"></div></div>
+        <p style="margin-top:14px;font-family:inherit;letter-spacing:3px;color:var(--gold);font-size:12px" id="armorCount">0 / 6 EQUIPPED</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CALCULATOR -->
+<section style="background:#0b0b10">
+  <div class="wrap">
+    <h2>Rascal-At-Your-Age Calculator</h2>
+    <p>Enter your age. Compare. Humble yourself. Believe me — you will not win this comparison. Nobody wins this comparison.</p>
+    <div class="calc">
+      <label style="letter-spacing:3px">YOUR AGE:</label><br/><br/>
+      <input id="ageIn" type="number" min="1" max="120" placeholder="??" />
+      <button id="ageBtn">Compare To Rascal</button>
+      <div class="verdict" id="verdict">Type a number. Find out how far behind you really are.</div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTES -->
+<section style="background:#0a1b3d">
+  <div class="wrap">
+    <h2>Straight From The Podium</h2>
+    <div class="quote-row">
+      <p class="quote">"I said to Melania — I said, 'Honey, there's a kid in the country. Jamieson. Rascal. Homeschooled. Deadlifts his bodyweight. Runs like the wind.' She didn't believe me. Nobody believes me. But it's true. It's all true."</p>
+      <button class="speak-btn" data-audio="quote1.mp3" aria-label="Listen">🔊</button>
+    </div>
+    <div class="quote-row">
+      <p class="quote">"Complex math. COMPLEX. Not easy math — anybody can do easy math. Rascal does the complex stuff. 100s. Across the board. A+. Beautiful to see."</p>
+      <button class="speak-btn" data-audio="quote2.mp3" aria-label="Listen">🔊</button>
+    </div>
+    <div class="quote-row">
+      <p class="quote">"The dirt bike — you should see this kid on a dirt bike. Marksman too. A marksman! At his age! Unbelievable. The generals are calling me."</p>
+      <button class="speak-btn" data-audio="quote3.mp3" aria-label="Listen">🔊</button>
+    </div>
+    <div class="quote-row">
+      <p class="quote">"And the Bible verses — oh, the Bible verses. He recites the Armor of God. The WHOLE thing. I sat there. I listened. I said, 'Folks, this is the real deal.'"</p>
+      <button class="speak-btn" data-audio="quote4.mp3" aria-label="Listen">🔊</button>
+    </div>
+  </div>
+</section>
+
+<div class="motto">"Many People Are Saying — The Greatest Kid. Ever."</div>
+
+<!-- === PIECE TALLY (above checklist) === -->
+<section class="piece-tally">
+  <div class="wrap">
+    <h2>Total Pieces Built</h2>
+    <p class="tally-sub">"Brick by brick. Unbelievable numbers. TREMENDOUS numbers."</p>
+    <div class="tally-number" id="totalPieces">0</div>
+    <div class="tally-label">PLASTIC BRICKS · CONQUERED</div>
+  </div>
+</section>
+
+<!-- === FULL KIT CHECKLIST CHART === -->
+<section style="background:#0b0b10">
+  <div class="wrap">
+    <h2>The Level 100 Quest · Every Kit Checklist</h2>
+    <p>Every set on this chart is a brick on the road to Level 100. Click a box — a line strikes through it, it fades out, XP goes up, level goes up. Tap the kit again to un-check. Progress saves automatically in this browser.</p>
+    <p style="color:#888;font-size:14px;font-family:'Georgia',serif;font-style:italic">Note: LEGO has released thousands of sets since 2019. This is a curated chart of notable sets across Rascal's favorite themes. Add any missing ones using the form at the very bottom.</p>
+
+    <div class="checklist-head">
+      <div class="filter-bar" id="filterBar">
+        <button class="filter-btn active" data-f="all">All</button>
+        <button class="filter-btn" data-f="todo">To Build</button>
+        <button class="filter-btn" data-f="done">Built</button>
+      </div>
+      <div style="color:var(--gold);letter-spacing:3px;font-size:14px">
+        <span id="chkProgress">0 / 0</span> complete
+      </div>
+    </div>
+
+    <div id="kitChart"></div>
+
+    <!-- HIDDEN ADD-KIT FORM (collapsed) -->
+    <details class="add-kit">
+      <summary>+ ADD A NEW KIT · ADMIN</summary>
+      <div class="add-form">
+        <input id="newName"  type="text"   placeholder="Kit name (e.g. Ninjago City Docks)" />
+        <input id="newNum"   type="text"   placeholder="Set # (e.g. 70657)" />
+        <select id="newTheme">
+          <option value="Custom">Theme — Custom</option>
+          <option>Ninjago</option>
+          <option>Technic</option>
+          <option>Super Mario</option>
+          <option>Minecraft</option>
+          <option>Marvel</option>
+          <option>Speed Champions</option>
+          <option>Creator 3-in-1</option>
+          <option>City</option>
+          <option>Botanical</option>
+          <option>Animals</option>
+          <option>Art / Mosaic</option>
+        </select>
+        <button id="saveKit">SAVE + MARK BUILT</button>
+      </div>
+      <p style="margin-top:10px;color:#666;font-size:12px;font-family:'Georgia',serif">Adds to the chart, checks it off, +1 level, live counter rolls up. Tremendous.</p>
+    </details>
+  </div>
+</section>
+
+<div class="motto">"We Have Never Seen A Kid Like This. Frankly, We May Never Again."</div>
+
+<footer>
+  <div class="seal2">★ RASCAL · 2017 — FOREVER ★</div>
+  <p>Jamieson Rascal · Homeschooled · Lifter · Marksman · Lego Tycoon · Dirt Bike Commander · Certified Coolest Kid On The Block.</p>
+  <p style="margin-top:10px;color:#555">Made with way too much love by Dad · MORRIS_OPS</p>
+</footer>
+
+<div class="bike" aria-hidden="true">🏍️💨</div>
+
+<!-- MARIO PIPE BOT -->
+<div class="pipe-host" id="pipeHost" aria-hidden="true">
+  <div class="mario-bubble" id="marioBubble">IT'S-A ME!</div>
+  <div class="mario-char"  id="marioChar"></div>
+  <div class="pipe"></div>
+</div>
+
+<div id="rain" aria-hidden="true"></div>
+<div class="toast" id="toast">LEVEL UP!</div>
+
+<script>
+/* ============================================================
+   DATA: CURATED LEGO KITS 2019–2026 (~120)
+   Edit freely. Each has: id, name, num, theme, year.
+   ============================================================ */
+const KITS = [
+  // RASCAL'S CURRENT BUILDS (pre-seeded as DONE)
+  { id:"rb1",  name:"Iron Spider-Man Construction Figure", num:"76298", theme:"Marvel", year:2024, seed:true },
+  { id:"rb2",  name:"Tuxedo Cat",                          num:"40653", theme:"Animals", year:2024, seed:true },
+  { id:"rb3",  name:"Ginger Cat / Orange Cat",             num:"21349-GC", theme:"Animals", year:2024, seed:true },
+  { id:"rb4",  name:"Megalodon vs Boat Combo",              num:"31161", theme:"Creator 3-in-1", year:2025, seed:true },
+  { id:"rb5",  name:"Wild Safari Animals",                  num:"31150", theme:"Creator 3-in-1", year:2023, seed:true },
+  { id:"rb6",  name:"Majestic Tiger",                       num:"31129", theme:"Creator 3-in-1", year:2022, seed:true },
+  { id:"rb7",  name:"Minecraft Pickaxe",                    num:"21265", theme:"Minecraft", year:2024, seed:true },
+  { id:"rb8",  name:"Minecraft Nether Portal Ambush",       num:"21255", theme:"Minecraft", year:2024, seed:true },
+  { id:"rb9",  name:"Mega Pixel Art · Bulbasaur",           num:"MEGA-BLB", theme:"Art / Mosaic", year:2023, seed:true },
+  { id:"rb10", name:"Mega Pixel Art · Pikachu",             num:"MEGA-PKC", theme:"Art / Mosaic", year:2023, seed:true },
+  { id:"rb11", name:"Speed Champions · Ferrari 812",        num:"76914", theme:"Speed Champions", year:2023, seed:true },
+  { id:"rb12", name:"Speed Champions · BMW M4 GT3 + M Hybrid V8", num:"76922", theme:"Speed Champions", year:2024, seed:true },
+  { id:"rb13", name:"Monster Jam · Megalodon",              num:"42134", theme:"Technic", year:2022, seed:true },
+  { id:"rb14", name:"Monster Jam · Dragon",                 num:"42149", theme:"Technic", year:2023, seed:true },
+  { id:"rb15", name:"Technic Monster Jam · El Toro Loco",   num:"42135", theme:"Technic", year:2022, seed:true },
+  { id:"rb16", name:"Green NRG Dragon · Ninjago",           num:"71766", theme:"Ninjago", year:2022, seed:true },
+  { id:"rb17", name:"Sushi Stand",                          num:"40728", theme:"City", year:2024, seed:true },
+  { id:"rb18", name:"Ferris Wheel",                         num:"31119", theme:"Creator 3-in-1", year:2021, seed:true },
+  { id:"rb19", name:"Shark Ship · Ninjago",                 num:"70656", theme:"Ninjago", year:2019, seed:true },
+  { id:"rb20", name:"Snail Garden",                         num:"40665", theme:"Botanical", year:2024, seed:true },
+
+  // NINJAGO
+  { id:"n1", name:"Ninjago City Docks",          num:"70657", theme:"Ninjago", year:2018 },
+  { id:"n2", name:"Ninjago City Markets",        num:"71799", theme:"Ninjago", year:2023 },
+  { id:"n3", name:"Ninjago City Gardens",        num:"71741", theme:"Ninjago", year:2021 },
+  { id:"n4", name:"Temple of the Dragon Energy Cores", num:"71795", theme:"Ninjago", year:2023 },
+  { id:"n5", name:"Lloyd's Golden Ultra Dragon", num:"71774", theme:"Ninjago", year:2022 },
+  { id:"n6", name:"The Keepers' Village",        num:"71747", theme:"Ninjago", year:2021 },
+  { id:"n7", name:"Jay's Titan Mech",            num:"71785", theme:"Ninjago", year:2023 },
+  { id:"n8", name:"Cole's Dragon Cruiser",       num:"71769", theme:"Ninjago", year:2022 },
+
+  // TECHNIC
+  { id:"t1", name:"Technic Bugatti Chiron",          num:"42083", theme:"Technic", year:2019 },
+  { id:"t2", name:"Technic Lamborghini Sián FKP 37", num:"42115", theme:"Technic", year:2020 },
+  { id:"t3", name:"Technic Ferrari Daytona SP3",     num:"42143", theme:"Technic", year:2022 },
+  { id:"t4", name:"Technic Peugeot 9X8 Hybrid",      num:"42156", theme:"Technic", year:2023 },
+  { id:"t5", name:"Technic App-Controlled Top Gear Rally Car", num:"42109", theme:"Technic", year:2020 },
+  { id:"t6", name:"Technic Mercedes-Benz Zetros",    num:"42129", theme:"Technic", year:2021 },
+  { id:"t7", name:"Technic John Deere 9700 Forage Harvester", num:"42168", theme:"Technic", year:2024 },
+  { id:"t8", name:"Technic NASA Mars Rover Perseverance", num:"42158", theme:"Technic", year:2023 },
+
+  // SUPER MARIO — ADVENTURES WITH MARIO (electronic/interactive lineup)
+  // Starter Courses (contain the electronic figures)
+  { id:"m_s1", name:"Adventures with Mario Starter Course",  num:"71360", theme:"Super Mario", year:2020 },
+  { id:"m_s2", name:"Adventures with Luigi Starter Course",  num:"71387", theme:"Super Mario", year:2021 },
+  { id:"m_s3", name:"Adventures with Peach Starter Course",  num:"71403", theme:"Super Mario", year:2022 },
+  // Expansion Sets
+  { id:"m_e01", name:"Guarded Fortress Expansion",           num:"71362", theme:"Super Mario", year:2020 },
+  { id:"m_e02", name:"Desert Pokey Expansion",               num:"71363", theme:"Super Mario", year:2020 },
+  { id:"m_e03", name:"Whomp's Lava Trouble Expansion",       num:"71364", theme:"Super Mario", year:2020 },
+  { id:"m_e04", name:"Piranha Plant Power Slide Expansion",  num:"71365", theme:"Super Mario", year:2020 },
+  { id:"m_e05", name:"Boomer Bill Barrage Expansion",        num:"71366", theme:"Super Mario", year:2020 },
+  { id:"m_e06", name:"Mario's House & Yoshi Expansion",      num:"71367", theme:"Super Mario", year:2020 },
+  { id:"m_e07", name:"Toad's Treasure Hunt Expansion",       num:"71368", theme:"Super Mario", year:2020 },
+  { id:"m_e08", name:"Bowser's Castle Boss Battle Expansion",num:"71369", theme:"Super Mario", year:2020 },
+  { id:"m_e09", name:"Thwomp Drop Expansion",                num:"71376", theme:"Super Mario", year:2020 },
+  { id:"m_e10", name:"King Boo and the Haunted Yard Expansion", num:"71377", theme:"Super Mario", year:2020 },
+  { id:"m_e11", name:"Master Your Adventure Maker Set",      num:"71380", theme:"Super Mario", year:2021 },
+  { id:"m_e12", name:"Chain Chomp Jungle Encounter Expansion", num:"71381", theme:"Super Mario", year:2021 },
+  { id:"m_e13", name:"Piranha Plant Puzzling Challenge",     num:"71382", theme:"Super Mario", year:2021 },
+  { id:"m_e14", name:"Wiggler's Poison Swamp Expansion",     num:"71383", theme:"Super Mario", year:2021 },
+  { id:"m_e15", name:"Reznor Knockdown Expansion",           num:"71390", theme:"Super Mario", year:2021 },
+  { id:"m_e16", name:"Bowser's Airship Expansion",           num:"71391", theme:"Super Mario", year:2021 },
+  { id:"m_e17", name:"Lakitu Sky World Expansion",           num:"71399", theme:"Super Mario", year:2022 },
+  { id:"m_e18", name:"Big Urchin Beach Ride Expansion",      num:"71400", theme:"Super Mario", year:2022 },
+  { id:"m_e19", name:"Goomba's Shoe Expansion",              num:"71404", theme:"Super Mario", year:2022 },
+  { id:"m_e20", name:"Fuzzy & Mushroom Platform Expansion",  num:"71405", theme:"Super Mario", year:2022 },
+  { id:"m_e21", name:"Yoshi's Gift House Expansion",         num:"71406", theme:"Super Mario", year:2022 },
+  { id:"m_e22", name:"Cat Peach Suit & Frozen Tower",        num:"71407", theme:"Super Mario", year:2022 },
+  { id:"m_e23", name:"Peach's Castle Expansion",             num:"71408", theme:"Super Mario", year:2022 },
+  { id:"m_e24", name:"Big Spike's Cloudtop Challenge",       num:"71409", theme:"Super Mario", year:2023 },
+  { id:"m_e25", name:"The Mighty Bowser (model)",            num:"71411", theme:"Super Mario", year:2022 },
+  { id:"m_e26", name:"Big Bad Island Expansion",             num:"71412", theme:"Super Mario", year:2023 },
+  { id:"m_e27", name:"Ice Mario Suit & Frozen World",        num:"71415", theme:"Super Mario", year:2023 },
+  { id:"m_e28", name:"Lava Wave Ride Expansion",             num:"71416", theme:"Super Mario", year:2023 },
+  { id:"m_e29", name:"Fliprus Snow Adventure Expansion",     num:"71417", theme:"Super Mario", year:2023 },
+  { id:"m_e30", name:"Creativity Toolbox Maker Set",         num:"71418", theme:"Super Mario", year:2023 },
+  { id:"m_e31", name:"Dixie Kong's Jungle Jam Expansion",    num:"71421", theme:"Super Mario", year:2024 },
+  { id:"m_e32", name:"Rambi the Rhino Expansion",            num:"71420", theme:"Super Mario", year:2023 },
+  { id:"m_e33", name:"Diddy Kong's Mine Cart Ride",          num:"71425", theme:"Super Mario", year:2024 },
+  { id:"m_e34", name:"Donkey Kong's Tree House Expansion",   num:"71424", theme:"Super Mario", year:2023 },
+  { id:"m_e35", name:"Cranky Kong's Library Expansion",      num:"71426", theme:"Super Mario", year:2024 },
+  { id:"m_e36", name:"Larry's and Morton's Airships",        num:"71427", theme:"Super Mario", year:2024 },
+  { id:"m_e37", name:"Nabbit at Toad's Shop Expansion",      num:"71429", theme:"Super Mario", year:2024 },
+  { id:"m_e38", name:"King Boo's Haunted Mansion Expansion", num:"71436", theme:"Super Mario", year:2024 },
+  // Power-Up Packs
+  { id:"m_p1",  name:"Penguin Mario Power-Up Pack",          num:"71384", theme:"Super Mario", year:2020 },
+  { id:"m_p2",  name:"Tanooki Mario Power-Up Pack",          num:"71385", theme:"Super Mario", year:2020 },
+  { id:"m_p3",  name:"Propeller Mario Power-Up Pack",        num:"71386", theme:"Super Mario", year:2020 },
+  { id:"m_p4",  name:"Boomerang Mario Power-Up Pack",        num:"71388", theme:"Super Mario", year:2021 },
+  { id:"m_p5",  name:"Frog Mario Power-Up Pack",             num:"71392", theme:"Super Mario", year:2021 },
+  { id:"m_p6",  name:"Bee Mario Power-Up Pack",              num:"71393", theme:"Super Mario", year:2022 },
+  { id:"m_p7",  name:"Fire Luigi Power-Up Pack",             num:"71397", theme:"Super Mario", year:2022 },
+  { id:"m_p8",  name:"Cat Peach Power-Up Pack",              num:"71398", theme:"Super Mario", year:2022 },
+  { id:"m_p9",  name:"Builder Mario Power-Up Pack",          num:"71373", theme:"Super Mario", year:2020 },
+  { id:"m_p10", name:"Fire Mario Power-Up Pack",             num:"71370", theme:"Super Mario", year:2020 },
+  // Character Packs (blind bag series)
+  { id:"m_c1", name:"Character Pack · Series 1",             num:"71361", theme:"Super Mario", year:2020 },
+  { id:"m_c2", name:"Character Pack · Series 2",             num:"71386-S2", theme:"Super Mario", year:2021 },
+  { id:"m_c3", name:"Character Pack · Series 3",             num:"71394", theme:"Super Mario", year:2022 },
+  { id:"m_c4", name:"Character Pack · Series 4",             num:"71402", theme:"Super Mario", year:2022 },
+  { id:"m_c5", name:"Character Pack · Series 5",             num:"71410", theme:"Super Mario", year:2023 },
+  { id:"m_c6", name:"Character Pack · Series 6",             num:"71413", theme:"Super Mario", year:2023 },
+  { id:"m_c7", name:"Character Pack · Series 7",             num:"71429-S7", theme:"Super Mario", year:2024 },
+
+  // MINECRAFT
+  { id:"mc1", name:"Minecraft The Crafting Table",     num:"21265", theme:"Minecraft", year:2024 },
+  { id:"mc2", name:"Minecraft The Training Grounds",   num:"21183", theme:"Minecraft", year:2022 },
+  { id:"mc3", name:"Minecraft The Deep Dark Battle",   num:"21246", theme:"Minecraft", year:2023 },
+  { id:"mc4", name:"Minecraft The Sheep Farm",         num:"21253", theme:"Minecraft", year:2024 },
+  { id:"mc5", name:"Minecraft The Axolotl House",      num:"21247", theme:"Minecraft", year:2023 },
+  { id:"mc6", name:"Minecraft The Dragon Hunt",        num:"21285", theme:"Minecraft", year:2025 },
+
+  // MARVEL
+  { id:"mv1", name:"Spider-Mech vs. Venom",            num:"76276", theme:"Marvel", year:2023 },
+  { id:"mv2", name:"Spider-Man Final Battle",          num:"76261", theme:"Marvel", year:2023 },
+  { id:"mv3", name:"Hulkbuster: The Battle of Wakanda",num:"76247", theme:"Marvel", year:2023 },
+  { id:"mv4", name:"Avengers Tower",                   num:"76269", theme:"Marvel", year:2023 },
+  { id:"mv5", name:"Venom Figure",                     num:"76230", theme:"Marvel", year:2022 },
+  { id:"mv6", name:"Iron Man Figure",                  num:"76206", theme:"Marvel", year:2022 },
+  { id:"mv7", name:"Miles Morales vs. Morbius",        num:"76244", theme:"Marvel", year:2023 },
+
+  // SPEED CHAMPIONS
+  { id:"sc1", name:"Porsche 963",                      num:"76916", theme:"Speed Champions", year:2023 },
+  { id:"sc2", name:"Lamborghini Lambo V12 Vision GT",  num:"76923", theme:"Speed Champions", year:2024 },
+  { id:"sc3", name:"McLaren Solus GT & F1 LM",         num:"76918", theme:"Speed Champions", year:2023 },
+  { id:"sc4", name:"Toyota GR Supra",                  num:"76901", theme:"Speed Champions", year:2022 },
+  { id:"sc5", name:"Pagani Utopia",                    num:"76915", theme:"Speed Champions", year:2023 },
+
+  // CREATOR 3-in-1
+  { id:"c1", name:"Exotic Parrot",                     num:"31136", theme:"Creator 3-in-1", year:2023 },
+  { id:"c2", name:"Space Astronaut",                   num:"31152", theme:"Creator 3-in-1", year:2024 },
+  { id:"c3", name:"T. rex",                            num:"31151", theme:"Creator 3-in-1", year:2024 },
+  { id:"c4", name:"Retro Roller Skate",                num:"31148", theme:"Creator 3-in-1", year:2023 },
+  { id:"c5", name:"Medieval Dragon",                   num:"31145", theme:"Creator 3-in-1", year:2023 },
+  { id:"c6", name:"Ocean Explorer",                    num:"31158", theme:"Creator 3-in-1", year:2025 },
+
+  // CITY
+  { id:"ct1", name:"City Police Station",              num:"60316", theme:"City", year:2022 },
+  { id:"ct2", name:"City Fire Command Truck",          num:"60374", theme:"City", year:2023 },
+  { id:"ct3", name:"City Main Square",                 num:"60271", theme:"City", year:2020 },
+  { id:"ct4", name:"City Space Exploration Rover",     num:"60430", theme:"City", year:2024 },
+  { id:"ct5", name:"City Police Helicopter Transport", num:"60244", theme:"City", year:2019 },
+
+  // BOTANICAL
+  { id:"bt1", name:"Bouquet of Roses",                 num:"10328", theme:"Botanical", year:2024 },
+  { id:"bt2", name:"Bonsai Tree",                      num:"10281", theme:"Botanical", year:2021 },
+  { id:"bt3", name:"Orchid",                           num:"10311", theme:"Botanical", year:2022 },
+  { id:"bt4", name:"Succulents",                       num:"10309", theme:"Botanical", year:2022 },
+  { id:"bt5", name:"Tiny Plants",                      num:"10329", theme:"Botanical", year:2023 },
+
+  // ANIMALS
+  { id:"a1", name:"Highland Cow",                      num:"31152-HC", theme:"Animals", year:2024 },
+  { id:"a2", name:"Baby Bumblebee",                    num:"40363", theme:"Animals", year:2020 },
+  { id:"a3", name:"Baby Penguin",                      num:"40498", theme:"Animals", year:2022 },
+  { id:"a4", name:"Tropical Parrot",                   num:"31136", theme:"Animals", year:2023 },
+
+  // ART / MOSAIC
+  { id:"ar1", name:"Art World Map",                    num:"31203", theme:"Art / Mosaic", year:2021 },
+  { id:"ar2", name:"Art The Beatles",                  num:"31198", theme:"Art / Mosaic", year:2020 },
+  { id:"ar3", name:"Art Hokusai · The Great Wave",     num:"31208", theme:"Art / Mosaic", year:2023 },
+  { id:"ar4", name:"Art Iron Man",                     num:"31199", theme:"Art / Mosaic", year:2020 },
+
+];
+
+/* ============================================================
+   STATE + PERSISTENCE
+   ============================================================ */
+const LS_DONE   = "rascal_kits_done_v1";
+const LS_CUSTOM = "rascal_kits_custom_v1";
+const LEVEL_CAP = 100;
+
+function loadDone() {
+  try { return new Set(JSON.parse(localStorage.getItem(LS_DONE) || "[]")); }
+  catch { return new Set(); }
+}
+function saveDone(set) { localStorage.setItem(LS_DONE, JSON.stringify([...set])); }
+function loadCustom() {
+  try { return JSON.parse(localStorage.getItem(LS_CUSTOM) || "[]"); }
+  catch { return []; }
+}
+function saveCustom(arr) { localStorage.setItem(LS_CUSTOM, JSON.stringify(arr)); }
+
+const done    = loadDone();
+const custom  = loadCustom();
+
+// Pre-seed "Rascal built" items on first load
+(function seed() {
+  if (localStorage.getItem("rascal_seeded_v1")) return;
+  KITS.filter(k => k.seed).forEach(k => done.add(k.id));
+  saveDone(done);
+  localStorage.setItem("rascal_seeded_v1", "1");
+})();
+
+function allKits() { return [...KITS, ...custom]; }
+
+/* ============================================================
+   XP / LEVEL RENDER
+   ============================================================ */
+function render() {
+  const kits = allKits();
+  const doneCount = kits.filter(k => done.has(k.id)).length;
+  const total = Math.max(1, kits.length);
+  const level = Math.min(LEVEL_CAP, Math.floor((doneCount / total) * LEVEL_CAP));
+  const pct   = Math.round((doneCount / total) * 100);
+
+  document.getElementById('lvlNum').textContent  = level;
+  document.getElementById('xpBar').style.width   = pct + "%";
+  document.getElementById('xpLabel').textContent = `${doneCount} / ${total} XP`;
+  document.getElementById('metaBuilt').textContent = doneCount;
+  document.getElementById('metaLeft').textContent  = Math.max(0, total - doneCount);
+  document.getElementById('metaPct').textContent   = pct + "%";
+  const nextTodo = kits.find(k => !done.has(k.id));
+  document.getElementById('metaNext').textContent = nextTodo ? (nextTodo.num || "—") : "MAX";
+  document.getElementById('statKitLive').textContent = doneCount;
+
+  // Total pieces tally
+  const totalPieces = kits.filter(k => done.has(k.id)).reduce((s,k) => s + kitPieces(k), 0);
+  animateTally(totalPieces);
+
+  // pips
+  const pips = document.getElementById('pips');
+  pips.innerHTML = "";
+  for (let i = 0; i < LEVEL_CAP; i++) {
+    const p = document.createElement('div');
+    p.className = 'pip' + (i < level ? ' done' : '');
+    pips.appendChild(p);
+  }
+
+  // built list (only done)
+  const blist = document.getElementById('builtList');
+  blist.innerHTML = "";
+  kits.filter(k => done.has(k.id)).forEach(k => {
+    const el = document.createElement('div');
+    el.className = 'built';
+    el.innerHTML = `<span class="name">${k.name}</span><span class="num">${k.num || ""}</span>`;
+    blist.appendChild(el);
+  });
+
+  renderChart();
+  document.getElementById('chkProgress').textContent = `${doneCount} / ${kits.length}`;
+}
+
+/* ============================================================
+   CHECKLIST CHART
+   ============================================================ */
+let currentFilter = "all";
+
+function renderChart() {
+  const chart = document.getElementById('kitChart');
+  chart.innerHTML = "";
+  const kits = allKits();
+  const byTheme = {};
+  kits.forEach(k => {
+    if (!byTheme[k.theme]) byTheme[k.theme] = [];
+    byTheme[k.theme].push(k);
+  });
+  const themes = Object.keys(byTheme).sort();
+  themes.forEach(theme => {
+    const box = document.createElement('div');
+    box.className = 'kit-theme';
+    const items = byTheme[theme]
+      .filter(k => currentFilter === "all" ||
+                   (currentFilter === "done" && done.has(k.id)) ||
+                   (currentFilter === "todo" && !done.has(k.id)))
+      .sort((a,b) => (a.year||0) - (b.year||0));
+    if (!items.length) return;
+    box.innerHTML = `<h3>${theme} · ${items.length}</h3>`;
+    items.forEach(k => {
+      const row = document.createElement('div');
+      row.className = 'kit-row' + (done.has(k.id) ? ' done' : '');
+      const numHtml = k.num
+        ? `<a class="kit-num" href="https://www.google.com/search?q=${encodeURIComponent('LEGO ' + k.num + ' ' + k.name)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${k.num}</a>`
+        : `<div class="kit-num"></div>`;
+      row.innerHTML = `
+        <div class="chk"></div>
+        <div class="kit-name">${k.name}</div>
+        ${numHtml}
+        <div class="kit-year">${k.year || ""}</div>
+      `;
+      row.addEventListener('click', () => toggleKit(k.id));
+      box.appendChild(row);
+    });
+    chart.appendChild(box);
+  });
+}
+
+function toggleKit(id) {
+  const wasDone = done.has(id);
+  if (wasDone) done.delete(id);
+  else {
+    done.add(id);
+    const oldLevel = getCurrentLevel();
+    setTimeout(() => {
+      const newLevel = getCurrentLevel();
+      if (newLevel > oldLevel) fireLevelUp(newLevel);
+    }, 40);
+  }
+  saveDone(done);
+  render();
+}
+
+function getCurrentLevel() {
+  const kits = allKits();
+  const c = kits.filter(k => done.has(k.id)).length;
+  const total = Math.max(1, kits.length);
+  return Math.min(LEVEL_CAP, Math.floor((c / total) * LEVEL_CAP));
+}
+
+/* ============================================================
+   LEVEL-UP TOAST + BRICK RAIN
+   ============================================================ */
+const toast = document.getElementById('toast');
+function fireLevelUp(lvl) {
+  toast.textContent = `★ LEVEL UP! · LVL ${lvl} ★`;
+  toast.classList.add('show');
+  brickRain(30);
+  clearTimeout(fireLevelUp._t);
+  fireLevelUp._t = setTimeout(() => toast.classList.remove('show'), 2600);
+}
+
+/* FILTER BUTTONS */
+document.getElementById('filterBar').addEventListener('click', e => {
+  const btn = e.target.closest('.filter-btn');
+  if (!btn) return;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  currentFilter = btn.dataset.f;
+  renderChart();
+});
+
+/* ADD KIT FORM */
+document.getElementById('saveKit').addEventListener('click', () => {
+  const name  = document.getElementById('newName').value.trim();
+  const num   = document.getElementById('newNum').value.trim();
+  const theme = document.getElementById('newTheme').value;
+  if (!name) { alert("Name required."); return; }
+  const id = "c_" + Date.now();
+  const kit = { id, name, num, theme, year: new Date().getFullYear() };
+  custom.push(kit);
+  saveCustom(custom);
+  const oldLevel = getCurrentLevel();
+  done.add(id);
+  saveDone(done);
+  document.getElementById('newName').value = "";
+  document.getElementById('newNum').value  = "";
+  render();
+  const newLevel = getCurrentLevel();
+  if (newLevel > oldLevel) fireLevelUp(newLevel);
+  else { brickRain(12); }
+});
+
+/* ============================================================
+   ARMOR OF GOD
+   ============================================================ */
+const ARMOR = {
+  belt:        { name:"Belt Of Truth",                 verse:"Stand firm then, with the belt of truth buckled around your waist.", ref:"Ephesians 6:14a",
+                 latin:"CINGULUM MILITARE", meaning:"\"Military belt.\" The Roman soldier's wide leather belt reinforced with metal plates and a hanging apron of studded straps. It held the tunic in place, carried the sword, and was the badge that marked a man as a legionary." },
+  breastplate: { name:"Breastplate Of Righteousness",  verse:"...with the breastplate of righteousness in place.", ref:"Ephesians 6:14b",
+                 latin:"LORICA MUSCULATA", meaning:"\"Muscled body armor.\" A cuirass of bronze or iron hammered into the shape of a warrior's chest and back. Guarded the heart and vital organs from sword thrusts and arrows." },
+  shoes:       { name:"Shoes Of The Gospel Of Peace",  verse:"...and with your feet fitted with the readiness that comes from the gospel of peace.", ref:"Ephesians 6:15",
+                 latin:"CALIGAE", meaning:"\"Military boots.\" Heavy hobnailed leather sandals worn by Roman legionaries. The iron studs on the sole gave traction on long marches and firm footing when the line had to hold." },
+  shield:      { name:"Shield Of Faith",               verse:"...take up the shield of faith, with which you can extinguish all the flaming arrows of the evil one.", ref:"Ephesians 6:16",
+                 latin:"SCUTUM", meaning:"\"Shield.\" The large curved rectangular shield of the Roman infantry, built from laminated wood and faced with leather. Big enough to hide behind and strong enough to link with others into the 'testudo' — the tortoise formation." },
+  helmet:      { name:"Helmet Of Salvation",           verse:"Take the helmet of salvation...", ref:"Ephesians 6:17a",
+                 latin:"GALEA", meaning:"\"Helmet.\" A Roman iron or bronze helmet with cheek guards, a neck protector, and often a red horsehair crest. Protected the head and face — the last line of defense for a soldier's mind and identity." },
+  sword:       { name:"Sword Of The Spirit",           verse:"...and the sword of the Spirit, which is the word of God.", ref:"Ephesians 6:17b",
+                 latin:"GLADIUS", meaning:"\"Short sword.\" The leaf-bladed double-edged thrusting sword of the Roman legionary. About two feet long, worn on the right hip, built for close combat — the only offensive weapon in the whole armor." },
+};
+const equipped = new Set();
+const armorDisp = document.getElementById('armorDisplay');
+let fullArmorFiredOnce = false;
+
+function renderArmor(lastKey) {
+  // sync buttons + rack slots
+  document.querySelectorAll('.armor-btn').forEach(b => {
+    b.classList.toggle('equipped', equipped.has(b.dataset.k));
+  });
+  document.querySelectorAll('.slot').forEach(s => {
+    s.classList.toggle('on', equipped.has(s.dataset.k));
+  });
+
+  const pct = (equipped.size/6)*100;
+  let html;
+  if (lastKey) {
+    const a = ARMOR[lastKey];
+    const state = equipped.has(lastKey) ? 'EQUIPPED' : 'REMOVED';
+    const latinBlock = (a.latin && equipped.has(lastKey)) ? `
+      <div class="latin-block">
+        <div class="latin-name">${a.latin}</div>
+        <div class="latin-meaning">${a.meaning}</div>
+      </div>` : '';
+    html = `
+      <h4>${a.name} · ${state}</h4>
+      <div class="verse">"${a.verse}"</div>
+      <span class="ref">— ${a.ref}</span>
+      ${latinBlock}
+      <div class="armor-progress" style="margin-top:14px"><div style="width:${pct}%;height:100%;background:var(--red)"></div></div>
+      <p style="margin-top:14px;font-family:inherit;letter-spacing:3px;color:var(--gold);font-size:12px">${equipped.size} / 6 EQUIPPED</p>
+    `;
+  } else {
+    html = `
+      <h4>Suit Up, Soldier.</h4>
+      <div class="verse">"Put on the full armor of God, so that you can take your stand against the devil's schemes."</div>
+      <span class="ref">— Ephesians 6:11</span>
+      <div class="armor-progress"><div style="width:${pct}%;height:100%;background:var(--red)"></div></div>
+      <p style="margin-top:14px;font-family:inherit;letter-spacing:3px;color:var(--gold);font-size:12px">${equipped.size} / 6 EQUIPPED</p>
+    `;
+  }
+  armorDisp.innerHTML = html;
+  if (equipped.size === 6 && !fullArmorFiredOnce) {
+    fullArmorFiredOnce = true;
+    armorDisp.innerHTML += `<p style="margin-top:14px;color:var(--gold);font-family:inherit;letter-spacing:2px">★ FULLY ARMORED. RASCAL APPROVED. ★</p>`;
+    brickRain(40);
+  }
+  if (equipped.size < 6) fullArmorFiredOnce = false;
+}
+
+function toggleArmor(k) {
+  if (equipped.has(k)) equipped.delete(k);
+  else equipped.add(k);
+  renderArmor(k);
+}
+
+document.querySelectorAll('.armor-btn').forEach(btn => {
+  btn.addEventListener('click', () => toggleArmor(btn.dataset.k));
+});
+document.querySelectorAll('.slot').forEach(s => {
+  s.addEventListener('click', () => toggleArmor(s.dataset.k));
+});
+
+/* ============================================================
+   CALCULATOR
+   ============================================================ */
+const lines = [
+  (a) => `At age ${a}? Rascal had already memorized the whole Armor of God. The WHOLE thing. Folks, you were still figuring out shoelaces.`,
+  (a) => `${a}? Rascal was deadlifting his bodyweight. You were probably watching TV. Sad!`,
+  (a) => `At ${a}, Rascal scored 100 on complex math. COMPLEX. You? Let's not get into it.`,
+  (a) => `${a} years old. Rascal already built the Tiger Tank. The Spider-Man mech. The Mario sets. You built... what? Nothing. Tremendous nothing.`,
+  (a) => `At ${a}, Rascal was running a 13-minute mile and riding a dirt bike. You were running from vegetables. Believe me.`,
+  (a) => `${a}? Please. Rascal was a certified marksman. You can barely hit the snooze button.`,
+];
+let shuffleQueue = [];
+let lastLine = null;
+function nextLine() {
+  if (!shuffleQueue.length) {
+    shuffleQueue = [...lines].sort(() => Math.random() - 0.5);
+    // Avoid repeating the last line immediately as the first of the new cycle
+    if (lastLine && shuffleQueue[0] === lastLine && shuffleQueue.length > 1) {
+      [shuffleQueue[0], shuffleQueue[1]] = [shuffleQueue[1], shuffleQueue[0]];
+    }
+  }
+  const pick = shuffleQueue.shift();
+  lastLine = pick;
+  return pick;
+}
+document.getElementById('ageBtn').addEventListener('click', () => {
+  const v = parseInt(document.getElementById('ageIn').value, 10);
+  const out = document.getElementById('verdict');
+  if (!v || v < 1) { out.textContent = "Type a real age. Come on. We're better than this."; return; }
+  out.textContent = nextLine()(v);
+});
+
+/* ============================================================
+   STAT COUNT-UP
+   ============================================================ */
+const statNums = document.querySelectorAll('.stat .num[data-count]');
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target;
+    if (el.id === 'statKitLive') { io.unobserve(el); return; }
+    const target = +el.dataset.count;
+    let n = 0; const step = Math.max(1, Math.ceil(target/40));
+    const tick = () => {
+      n += step;
+      if (n >= target) { el.textContent = target; return; }
+      el.textContent = n;
+      requestAnimationFrame(tick);
+    };
+    tick();
+    io.unobserve(el);
+  });
+}, { threshold: .4 });
+statNums.forEach(s => io.observe(s));
+
+/* ============================================================
+   LEGO BRICK RAIN
+   ============================================================ */
+const COLORS = ["#c8102e","#1565c0","#2e7d32","#f9a825","#111","#f5c04a"];
+function brickRain(count = 60) {
+  const rain = document.getElementById('rain');
+  for (let i = 0; i < count; i++) {
+    const b = document.createElement('div');
+    b.className = 'falling';
+    const c = COLORS[Math.floor(Math.random()*COLORS.length)];
+    b.style.background = c;
+    b.style.left = Math.random()*100 + 'vw';
+    b.style.animation = `drop ${3 + Math.random()*3}s linear ${Math.random()*1.5}s forwards`;
+    b.style.transform = `rotate(${Math.random()*360}deg)`;
+    rain.appendChild(b);
+    setTimeout(() => b.remove(), 7000);
+  }
+}
+const rainStyle = document.createElement('style');
+rainStyle.textContent = `@keyframes drop { to { top: 110vh; transform: rotate(720deg); } }`;
+document.head.appendChild(rainStyle);
+
+let clicks = 0, clickTimer;
+document.getElementById('seal').addEventListener('click', () => {
+  clicks++;
+  clearTimeout(clickTimer);
+  clickTimer = setTimeout(() => clicks = 0, 600);
+  if (clicks >= 3) { clicks = 0; brickRain(80); }
+});
+
+/* ============================================================
+   LEGO PIECE COUNTS
+   ============================================================ */
+const PIECE_OVERRIDES = {
+  // Rascal's builds (known/approx counts)
+  "76298": 528, "40653": 245, "21349-GC": 100, "31161": 834, "31150": 780,
+  "31129": 755, "21265": 1195, "21255": 352, "MEGA-BLB": 789, "MEGA-PKC": 1092,
+  "76914": 261, "76922": 676, "42134": 260, "42149": 217, "42135": 247,
+  "71766": 989, "40728": 163, "31119": 1002, "70656": 295, "40665": 228,
+  // Mario starters (known)
+  "71360": 231, "71387": 280, "71403": 354,
+  // Mario signature builds
+  "71369": 1010, "71411": 2807, "71408": 1216, "71391": 1152,
+  // Ninjago big ones
+  "70657": 3553, "71799": 6163, "71741": 5685, "71795": 1039, "71774": 989,
+  // Technic flagship
+  "42083": 3599, "42115": 3696, "42143": 3778, "42156": 1775, "42158": 1132,
+  // Icons/Marvel
+  "76247": 385, "76269": 5201, "76276": 124, "76261": 900,
+  // Creator 3-in-1 flagship
+  "31136": 253, "31152": 647, "31151": 613, "31145": 222, "31158": 430,
+  // Botanical
+  "10328": 822, "10281": 878, "10311": 608, "10309": 771, "10329": 758,
+};
+const MARIO_POWERUPS = ["71370","71373","71384","71385","71386","71388","71392","71393","71397","71398"];
+const MARIO_CHARPACKS = ["71361","71371","71386-S2","71394","71402","71410","71413","71429-S7"];
+const THEME_DEFAULTS = {
+  "Super Mario": 130, "Technic": 260, "Speed Champions": 280,
+  "Creator 3-in-1": 700, "Ninjago": 700, "Minecraft": 350,
+  "Marvel": 450, "Botanical": 400, "Animals": 300,
+  "Art / Mosaic": 2500, "City": 500,
+};
+function kitPieces(k) {
+  if (typeof k.pieces === "number") return k.pieces;
+  const num = k.num || "";
+  if (PIECE_OVERRIDES[num]) return PIECE_OVERRIDES[num];
+  if (k.theme === "Super Mario") {
+    if (MARIO_POWERUPS.includes(num)) return 17;
+    if (MARIO_CHARPACKS.includes(num)) return 52;
+  }
+  return THEME_DEFAULTS[k.theme] || 300;
+}
+
+/* Animated count-up for the tally */
+let tallyCurrent = 0;
+function animateTally(target) {
+  const el = document.getElementById('totalPieces');
+  if (!el) return;
+  const start = tallyCurrent;
+  const diff  = target - start;
+  if (diff === 0) { el.textContent = target.toLocaleString(); return; }
+  const duration = 700;
+  const t0 = performance.now();
+  function step(now) {
+    const p = Math.min(1, (now - t0) / duration);
+    const eased = 1 - Math.pow(1 - p, 3);
+    const val = Math.round(start + diff * eased);
+    el.textContent = val.toLocaleString();
+    if (p < 1) requestAnimationFrame(step);
+    else tallyCurrent = target;
+  }
+  requestAnimationFrame(step);
+}
+
+/* ============================================================
+   PODIUM SPEAK BUTTONS (browser TTS)
+   ============================================================ */
+function pickVoice() {
+  const voices = window.speechSynthesis.getVoices();
+  if (!voices.length) return null;
+  // Priority tiers — newer neural voices sound far more natural
+  const tiers = [
+    // 1) Neural/Natural US male (Edge online voices) — best quality
+    v => /en-US/i.test(v.lang) && /guy|andrew|brian|christopher|eric|roger|tony/i.test(v.name) && /natural|online|neural/i.test(v.name),
+    // 2) Any natural/neural US male
+    v => /en-US/i.test(v.lang) && /natural|online|neural/i.test(v.name) && !/aria|jenny|emma|ana|michelle/i.test(v.name),
+    // 3) Google US English (typically male default)
+    v => /en-US/i.test(v.lang) && /google/i.test(v.name),
+    // 4) Classic desktop male voices
+    v => /david|mark|guy|george|fred|alex|daniel/i.test(v.name),
+    // 5) Any en-US voice
+    v => /en-US/i.test(v.lang),
+    // 6) Any en voice
+    v => /^en/i.test(v.lang),
+  ];
+  for (const test of tiers) { const match = voices.find(test); if (match) return match; }
+  return voices[0];
+}
+
+let currentAudio = null;
+
+function stopAllSpeech() {
+  if (window.speechSynthesis) window.speechSynthesis.cancel();
+  if (currentAudio) { currentAudio.pause(); currentAudio.currentTime = 0; currentAudio = null; }
+  document.querySelectorAll('.speak-btn').forEach(b => b.classList.remove('playing'));
+}
+
+function speakTTS(text, btn) {
+  if (!window.speechSynthesis) { alert("Your browser doesn't support speech."); return; }
+  const u = new SpeechSynthesisUtterance(text);
+  const v = pickVoice();
+  if (v) u.voice = v;
+  u.rate = 0.85; u.pitch = 0.68; u.volume = 1;
+  if (btn) btn.classList.add('playing');
+  u.onend   = () => btn && btn.classList.remove('playing');
+  u.onerror = () => btn && btn.classList.remove('playing');
+  window.speechSynthesis.speak(u);
+}
+
+function playMp3(src, btn, fallbackText) {
+  const audio = new Audio(src);
+  audio.playbackRate = 1.43;  // 30% + another 10%
+  currentAudio = audio;
+  if (btn) btn.classList.add('playing');
+  audio.addEventListener('ended', () => {
+    if (btn) btn.classList.remove('playing');
+    if (currentAudio === audio) currentAudio = null;
+  });
+  audio.addEventListener('error', () => {
+    if (btn) btn.classList.remove('playing');
+    if (currentAudio === audio) currentAudio = null;
+    // Fall back to browser TTS if MP3 is missing
+    if (fallbackText) speakTTS(fallbackText, btn);
+  });
+  audio.play().catch(() => {
+    if (btn) btn.classList.remove('playing');
+    if (fallbackText) speakTTS(fallbackText, btn);
+  });
+}
+
+document.querySelectorAll('.speak-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    if (btn.classList.contains('playing')) { stopAllSpeech(); return; }
+    stopAllSpeech();
+    const quote = btn.parentElement.querySelector('.quote');
+    const txt = quote ? quote.textContent.replace(/[""]/g, '').trim() : '';
+    const src = btn.dataset.audio;
+    if (src) playMp3(src, btn, txt);
+    else if (txt) speakTTS(txt, btn);
+  });
+});
+// Prime the voice list on some browsers
+if (window.speechSynthesis) window.speechSynthesis.onvoiceschanged = () => {};
+
+/* ============================================================
+   MARIO PIPE BOT — rotating cast
+   ============================================================ */
+const CAST = [
+  { name:"MARIO", line:"IT'S-A ME!",
+    svg:`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' shape-rendering='crispEdges'><rect x='4' y='1' width='8' height='3' fill='%23e52521'/><rect x='3' y='2' width='10' height='2' fill='%23e52521'/><rect x='7' y='2' width='2' height='1' fill='%23fff'/><rect x='3' y='4' width='2' height='2' fill='%233b2816'/><rect x='11' y='4' width='2' height='2' fill='%233b2816'/><rect x='5' y='4' width='6' height='4' fill='%23f5c38a'/><rect x='6' y='5' width='1' height='2' fill='%23000'/><rect x='9' y='5' width='1' height='2' fill='%23000'/><rect x='5' y='7' width='6' height='1' fill='%233b2816'/><rect x='6' y='8' width='4' height='1' fill='%233b2816'/><rect x='4' y='9' width='8' height='4' fill='%231d4ed8'/><rect x='7' y='9' width='2' height='4' fill='%23facc15'/></svg>` },
+  { name:"LUIGI", line:"LET'S-A GO!",
+    svg:`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' shape-rendering='crispEdges'><rect x='4' y='1' width='8' height='3' fill='%232e7d32'/><rect x='3' y='2' width='10' height='2' fill='%232e7d32'/><rect x='7' y='2' width='2' height='1' fill='%23fff'/><rect x='3' y='4' width='2' height='2' fill='%233b2816'/><rect x='11' y='4' width='2' height='2' fill='%233b2816'/><rect x='5' y='4' width='6' height='4' fill='%23f5c38a'/><rect x='6' y='5' width='1' height='2' fill='%23000'/><rect x='9' y='5' width='1' height='2' fill='%23000'/><rect x='5' y='7' width='6' height='1' fill='%233b2816'/><rect x='6' y='8' width='4' height='1' fill='%233b2816'/><rect x='4' y='9' width='8' height='4' fill='%231d4ed8'/><rect x='7' y='9' width='2' height='4' fill='%23facc15'/></svg>` },
+  { name:"PEACH", line:"HI RASCAL!",
+    svg:`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' shape-rendering='crispEdges'><rect x='5' y='1' width='6' height='1' fill='%23facc15'/><rect x='4' y='2' width='8' height='1' fill='%23facc15'/><rect x='5' y='1' width='1' height='1' fill='%23e52521'/><rect x='8' y='1' width='1' height='1' fill='%233b82f6'/><rect x='10' y='1' width='1' height='1' fill='%23e52521'/><rect x='3' y='3' width='10' height='2' fill='%23fde68a'/><rect x='4' y='5' width='8' height='3' fill='%23f5c38a'/><rect x='3' y='5' width='1' height='6' fill='%23fde68a'/><rect x='12' y='5' width='1' height='6' fill='%23fde68a'/><rect x='6' y='6' width='1' height='1' fill='%23000'/><rect x='9' y='6' width='1' height='1' fill='%23000'/><rect x='7' y='8' width='2' height='1' fill='%23e52521'/><rect x='3' y='9' width='10' height='5' fill='%23ec4899'/><rect x='7' y='10' width='2' height='1' fill='%23fbcfe8'/></svg>` },
+  { name:"TOAD", line:"YIPPEE!",
+    svg:`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' shape-rendering='crispEdges'><rect x='3' y='2' width='10' height='4' fill='%23ffffff'/><rect x='2' y='3' width='12' height='3' fill='%23ffffff'/><rect x='4' y='3' width='2' height='2' fill='%23e52521'/><rect x='10' y='3' width='2' height='2' fill='%23e52521'/><rect x='7' y='2' width='2' height='2' fill='%23e52521'/><rect x='4' y='6' width='8' height='3' fill='%23f5c38a'/><rect x='5' y='7' width='1' height='1' fill='%23000'/><rect x='10' y='7' width='1' height='1' fill='%23000'/><rect x='6' y='8' width='4' height='1' fill='%23000'/><rect x='4' y='9' width='8' height='5' fill='%23ffffff'/><rect x='5' y='10' width='2' height='2' fill='%2322c55e'/><rect x='9' y='10' width='2' height='2' fill='%2322c55e'/></svg>` },
+  { name:"YOSHI", line:"YOSHI!",
+    svg:`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' shape-rendering='crispEdges'><rect x='4' y='2' width='8' height='6' fill='%2322c55e'/><rect x='3' y='3' width='10' height='4' fill='%2322c55e'/><rect x='6' y='3' width='1' height='2' fill='%23ffffff'/><rect x='9' y='3' width='1' height='2' fill='%23ffffff'/><rect x='6' y='4' width='1' height='1' fill='%23000'/><rect x='9' y='4' width='1' height='1' fill='%23000'/><rect x='5' y='6' width='2' height='1' fill='%23e52521'/><rect x='9' y='6' width='2' height='1' fill='%23e52521'/><rect x='4' y='8' width='8' height='5' fill='%2322c55e'/><rect x='5' y='9' width='6' height='3' fill='%23fef9c3'/><rect x='3' y='12' width='4' height='2' fill='%23e52521'/><rect x='9' y='12' width='4' height='2' fill='%23e52521'/></svg>` },
+  { name:"BOWSER", line:"BWAHAHAHA!",
+    svg:`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' shape-rendering='crispEdges'><rect x='3' y='2' width='10' height='5' fill='%23f59e0b'/><rect x='2' y='1' width='2' height='2' fill='%23fef08a'/><rect x='12' y='1' width='2' height='2' fill='%23fef08a'/><rect x='5' y='3' width='2' height='2' fill='%23ffffff'/><rect x='9' y='3' width='2' height='2' fill='%23ffffff'/><rect x='5' y='4' width='1' height='1' fill='%23000'/><rect x='10' y='4' width='1' height='1' fill='%23000'/><rect x='4' y='6' width='8' height='1' fill='%23000'/><rect x='5' y='6' width='1' height='1' fill='%23ffffff'/><rect x='10' y='6' width='1' height='1' fill='%23ffffff'/><rect x='3' y='8' width='10' height='5' fill='%2315803d'/><rect x='2' y='7' width='2' height='2' fill='%23fef08a'/><rect x='12' y='7' width='2' height='2' fill='%23fef08a'/><rect x='5' y='9' width='2' height='2' fill='%23fef9c3'/><rect x='9' y='9' width='2' height='2' fill='%23fef9c3'/></svg>` },
+];
+
+const pipeHost   = document.getElementById('pipeHost');
+const marioChar  = document.getElementById('marioChar');
+const marioBubble= document.getElementById('marioBubble');
+let castIdx = 0;
+
+function marioRun() {
+  const vw = window.innerWidth;
+  const vh = window.innerHeight;
+  const x = Math.random() * (vw - 120) + 20;
+  const y = Math.random() * Math.max(200, vh - 280) + 120;
+  pipeHost.style.left = x + 'px';
+  pipeHost.style.top  = y + 'px';
+
+  const cast = CAST[castIdx % CAST.length];
+  castIdx++;
+  marioChar.style.backgroundImage = `url("data:image/svg+xml;utf8,${cast.svg}")`;
+  marioBubble.textContent = cast.line;
+
+  pipeHost.classList.add('show');
+  setTimeout(() => pipeHost.classList.add('peek'),    380);
+  setTimeout(() => pipeHost.classList.remove('peek'), 2400);
+  setTimeout(() => pipeHost.classList.remove('show'), 2850);
+
+  const next = 5000 + Math.random() * 5000;
+  setTimeout(marioRun, 2850 + next);
+}
+setTimeout(marioRun, 3500);
+
+/* ============================================================
+   INITIAL RENDER
+   ============================================================ */
+render();
+</script>
+</body>
+</html>
