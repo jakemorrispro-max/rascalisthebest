@@ -1,0 +1,741 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Rascal CodeSchool 2.0 — From Spinning Cats To Shipped Games. Believe Me.</title>
+<style>
+  :root {
+    --gold: #f5c04a;
+    --red:  #c8102e;
+    --navy: #0a1b3d;
+    --ink:  #0b0b10;
+    --paper:#fff8ea;
+    --green:#2e7d32;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--ink); color: var(--paper); font-family: "Impact","Oswald","Arial Black",sans-serif; letter-spacing: .5px; overflow-x: hidden; }
+  a { color: var(--gold); }
+
+  /* === TICKER === */
+  .ticker {
+    position: sticky; top: 0; z-index: 50;
+    background: var(--red); color: #fff;
+    border-bottom: 5px solid var(--gold);
+    overflow: hidden; white-space: nowrap;
+    font-size: 28px; padding: 16px 0; letter-spacing: 1px;
+  }
+  .ticker-track { display: inline-block; padding-left: 100%; animation: marquee 38s linear infinite; }
+  .ticker span { margin: 0 48px; }
+  .ticker .hot { color: var(--gold); }
+  @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+
+  /* === SITE TABS === */
+  .tabs {
+    display: flex; justify-content: center; gap: 0;
+    background: #050814; border-bottom: 4px solid var(--gold);
+  }
+  .tab {
+    padding: 16px 34px; text-decoration: none; color: var(--paper);
+    font-size: 18px; letter-spacing: 3px; text-transform: uppercase;
+    border-left: 1px solid #1c1c28; border-right: 1px solid #1c1c28;
+    transition: background .2s, color .2s;
+  }
+  .tab:hover { background: #16244e; color: var(--gold); }
+  .tab.active { background: var(--gold); color: var(--ink); }
+  @media (max-width: 520px) { .tab { padding: 13px 16px; font-size: 14px; } }
+
+  /* === HERO === */
+  .hero {
+    position: relative; min-height: 64vh; overflow: hidden;
+    background: radial-gradient(ellipse at top, #1b2a55 0%, #0a1b3d 55%, #050814 100%);
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    padding: 60px 24px;
+  }
+  .hero .pic {
+    position: absolute; border: 6px solid var(--paper);
+    box-shadow: 0 18px 40px rgba(0,0,0,.55), 0 2px 0 var(--gold);
+    background-size: cover; background-position: center;
+    animation: float 9s ease-in-out infinite; pointer-events: none;
+  }
+  .hero .p1 { top: 8%; left: 5%; width: 220px; height: 270px; transform: rotate(-7deg); }
+  .hero .p2 { bottom: 8%; right: 5%; width: 230px; height: 180px; transform: rotate(6deg); animation-delay: 2s; }
+  @keyframes float { 0%,100% { translate: 0 0; } 50% { translate: 0 -14px; } }
+  .hero-inner {
+    position: relative; z-index: 2; text-align: center; max-width: 940px;
+    background: rgba(10,27,61,.72); backdrop-filter: blur(4px);
+    border: 3px solid var(--gold); padding: 38px 28px; border-radius: 6px;
+  }
+  .eyebrow { color: var(--gold); font-size: 14px; letter-spacing: 4px; }
+  h1 {
+    font-size: clamp(38px, 6vw, 86px); line-height: .95;
+    color: var(--paper); text-shadow: 0 4px 0 var(--red), 0 6px 14px rgba(0,0,0,.6);
+    margin: 10px 0 14px; text-transform: uppercase;
+  }
+  h1 .gold { color: var(--gold); }
+  .subtitle { font-size: clamp(16px, 2vw, 22px); font-family: "Georgia",serif; font-weight: bold; font-style: italic; color: #fff; }
+
+  section { padding: 72px 24px; position: relative; }
+  .wrap { max-width: 1100px; margin: 0 auto; }
+  h2 {
+    font-size: clamp(30px, 4vw, 56px); text-transform: uppercase; color: var(--gold);
+    border-bottom: 4px solid var(--red); padding-bottom: 10px; margin-bottom: 28px;
+  }
+  p  { font-family: "Georgia",serif; font-size: 17px; line-height: 1.55; color: #e9e6dd; margin-bottom: 12px; }
+  .quote {
+    font-family: "Georgia",serif; font-style: italic; font-size: 20px;
+    border-left: 5px solid var(--gold); padding: 14px 20px; background: rgba(255,255,255,.04);
+    color: #fff; margin: 18px 0;
+  }
+
+  /* === PROGRESS CARD === */
+  .xp-card {
+    background: linear-gradient(135deg,#0a1b3d,#1b2a55 60%,#0a1b3d);
+    border: 4px solid var(--gold);
+    padding: 32px; position: relative; overflow: hidden;
+    box-shadow: 0 0 40px rgba(245,192,74,.15);
+  }
+  .xp-card::before {
+    content: ""; position: absolute; inset: 0;
+    background: repeating-linear-gradient(45deg, transparent 0 40px, rgba(245,192,74,.04) 40px 80px);
+    pointer-events: none;
+  }
+  .xp-head { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 12px; margin-bottom: 16px; }
+  .xp-title { font-size: 31px; color: var(--gold); letter-spacing: 3px; }
+  .belt-box { text-align: right; }
+  .belt-chip {
+    display: inline-block; padding: 10px 26px; border: 3px solid var(--gold);
+    font-size: 26px; letter-spacing: 4px; text-transform: uppercase;
+    text-shadow: 0 1px 3px rgba(0,0,0,.6);
+  }
+  .belt-box .belt-cap { color: var(--gold); letter-spacing: 4px; font-size: 14px; margin-top: 8px; }
+  .pct-big { font-size: 80px; line-height: 1; color: var(--paper); text-shadow: 0 3px 0 var(--red); }
+  .xp-bar-outer {
+    height: 36px; background: #000; border: 3px solid var(--gold); border-radius: 4px;
+    position: relative; overflow: hidden;
+  }
+  .xp-bar-inner {
+    height: 100%; background: linear-gradient(90deg, var(--red), var(--gold));
+    width: 0; transition: width .8s cubic-bezier(.2,.9,.2,1);
+    box-shadow: 0 0 20px var(--gold);
+  }
+  .xp-bar-label {
+    position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+    color: #fff; letter-spacing: 3px; font-size: 16px; text-shadow: 0 1px 2px #000;
+  }
+  .xp-meta {
+    display: grid; grid-template-columns: repeat(auto-fit,minmax(170px,1fr)); gap: 12px; margin-top: 20px;
+  }
+  .xp-cell { background: rgba(0,0,0,.35); border: 2px solid var(--gold); padding: 14px; text-align: center; }
+  .xp-cell .v { color: var(--gold); font-size: 31px; }
+  .xp-cell .k { color: #fff; letter-spacing: 2px; font-size: 13px; margin-top: 4px; }
+  .level-pips { display: grid; grid-template-columns: repeat(50, 1fr); gap: 3px; margin-top: 20px; }
+  .pip { height: 10px; background: #1a1a22; border-radius: 1px; }
+  .pip.done { background: var(--gold); box-shadow: 0 0 4px var(--gold); }
+
+  /* === BELT RACK === */
+  .belt-rack { display: grid; grid-template-columns: repeat(auto-fit,minmax(110px,1fr)); gap: 12px; }
+  .belt-card {
+    border: 2px solid #2a2a35; background: #11111a; padding: 16px 10px 14px;
+    text-align: center; transition: border-color .3s, box-shadow .3s, transform .3s;
+  }
+  .belt-card .strap { height: 26px; border-radius: 3px; margin-bottom: 10px; box-shadow: inset 0 -7px 0 rgba(0,0,0,.3); border: 1px solid rgba(0,0,0,.4); }
+  .belt-card .bname { font-size: 13px; letter-spacing: 2px; color: #777; text-transform: uppercase; }
+  .belt-card .bcount { font-size: 11px; letter-spacing: 2px; color: #555; margin-top: 4px; }
+  .belt-card.earned { border-color: var(--gold); box-shadow: 0 0 18px rgba(245,192,74,.35); transform: translateY(-3px); }
+  .belt-card.earned .bname { color: var(--gold); }
+  .belt-card.earned .bcount { color: var(--paper); }
+  .belt-card.current { border-color: var(--red); box-shadow: 0 0 18px rgba(200,16,46,.45); }
+  .belt-card.current .bname { color: #fff; }
+
+  /* === MISSION CHART === */
+  .belt-section { margin-top: 34px; }
+  .belt-head {
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;
+    padding-left: 14px; margin-bottom: 4px;
+  }
+  .belt-head h3 {
+    color: var(--paper); font-size: 24px; text-transform: uppercase; letter-spacing: 3px;
+  }
+  .belt-head .belt-motto { font-family: "Georgia",serif; font-style: italic; font-size: 15px; color: #9a968c; }
+  .belt-head .belt-progress { color: var(--gold); letter-spacing: 3px; font-size: 14px; }
+  .mission-row {
+    display: flex; align-items: center; gap: 14px;
+    padding: 13px 14px; border-bottom: 1px solid #1c1c28;
+    cursor: pointer; transition: background .15s;
+    font-size: 17px;
+  }
+  .mission-row:hover { background: rgba(245,192,74,.05); }
+  .mission-row.done { opacity: .38; text-decoration: line-through; }
+  .mission-row.done .chk { background: var(--green); border-color: var(--green); }
+  .mission-row.next { background: rgba(245,192,74,.08); border-left: 4px solid var(--gold); }
+  .mission-row.next .m-name::after {
+    content: "▶ UP NEXT"; margin-left: 12px; color: var(--ink); background: var(--gold);
+    font-size: 11px; letter-spacing: 2px; padding: 2px 8px; vertical-align: 2px;
+  }
+  .chk {
+    flex: 0 0 30px; width: 30px; height: 30px; border: 2px solid var(--gold);
+    display: flex; align-items: center; justify-content: center; font-size: 20px;
+  }
+  .mission-row.done .chk::before { content: "✓"; color: #fff; }
+  .m-name { flex: 1; color: var(--paper); letter-spacing: 1px; line-height: 1.3; }
+  .m-xp { color: var(--gold); font-size: 12px; letter-spacing: 2px; flex: 0 0 auto; }
+
+  /* === ARSENAL === */
+  .arsenal { display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 18px; }
+  .weapon {
+    display: block; text-decoration: none;
+    background: linear-gradient(180deg,#16244e,#0a1b3d); border: 2px solid var(--gold);
+    padding: 26px 22px; transition: transform .2s, box-shadow .2s;
+  }
+  .weapon:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,0,0,.5); }
+  .weapon .w-name { color: var(--gold); font-size: 24px; letter-spacing: 2px; text-transform: uppercase; }
+  .weapon .w-belt { color: #fff; font-size: 12px; letter-spacing: 3px; margin: 6px 0 10px; }
+  .weapon .w-desc { font-family: "Georgia",serif; font-size: 15px; color: #e9e6dd; line-height: 1.5; }
+
+  /* === HOUSE RULES === */
+  .rules-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap: 14px; }
+  .rule {
+    background: rgba(255,255,255,.03); border: 2px solid #2a2a35; border-top: 4px solid var(--gold);
+    padding: 20px;
+  }
+  .rule .r-num { color: var(--gold); font-size: 34px; }
+  .rule .r-text { font-family: "Georgia",serif; font-size: 15px; color: #e9e6dd; line-height: 1.5; margin-top: 6px; }
+
+  /* RESET — hidden collapse */
+  .admin-zone { margin-top: 40px; border-top: 1px dashed #444; padding-top: 30px; }
+  .admin-zone summary {
+    cursor: pointer; font-size: 12px; letter-spacing: 4px; color: #666;
+    padding: 8px 0; list-style: none; user-select: none;
+  }
+  .admin-zone summary::-webkit-details-marker { display: none; }
+  .admin-zone summary:hover { color: var(--gold); }
+  .admin-zone button {
+    margin-top: 14px; background: var(--red); color: #fff; border: 2px solid var(--gold);
+    font-family: inherit; padding: 10px 18px; letter-spacing: 3px; cursor: pointer; font-size: 14px;
+  }
+  .admin-zone button:hover { background: var(--gold); color: var(--ink); }
+
+  .motto {
+    background: var(--gold); color: var(--ink); padding: 30px 20px; text-align: center;
+    font-size: clamp(22px, 3vw, 40px); text-transform: uppercase;
+    border-top: 4px solid var(--red); border-bottom: 4px solid var(--red);
+  }
+  footer { background: #000; padding: 40px 20px; text-align: center; color: #888; font-family: "Georgia",serif; font-size: 13px; }
+  footer .seal2 { color: var(--gold); letter-spacing: 4px; font-family: inherit; margin-bottom: 10px; }
+
+  /* BRICK RAIN + TOAST */
+  #rain { position: fixed; inset: 0; pointer-events: none; z-index: 90; overflow: hidden; }
+  .falling {
+    position: absolute; top: -60px; width: 46px; height: 30px; border-radius: 4px;
+    box-shadow: inset 0 -6px 0 rgba(0,0,0,.3);
+  }
+  .toast {
+    position: fixed; top: 24px; left: 50%; transform: translateX(-50%) translateY(-80px);
+    background: var(--gold); color: var(--ink); padding: 16px 28px;
+    border: 4px solid var(--red); z-index: 100;
+    font-size: 22px; letter-spacing: 3px; text-transform: uppercase;
+    box-shadow: 0 10px 40px rgba(0,0,0,.6);
+    transition: transform .5s cubic-bezier(.2,.9,.2,1);
+  }
+  .toast.show { transform: translateX(-50%) translateY(0); }
+
+  @media (max-width: 720px) {
+    .hero .pic { display: none; }
+    .level-pips { grid-template-columns: repeat(25, 1fr); }
+    .mission-row { font-size: 15px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="hot">★ NOW ENROLLING ★</span>
+    <span>RASCAL CODESCHOOL 2.0 — ONE STUDENT. THE BEST STUDENT. NOBODY LEARNS FASTER.</span>
+    <span class="hot">★</span>
+    <span>9 BELTS. 100 MISSIONS. ZERO MONTHLY FEES. TREMENDOUS VALUE.</span>
+    <span class="hot">★</span>
+    <span>FROM SPINNING CATS TO SHIPPED GAMES. THE FULL ROAD. BELIEVE ME.</span>
+    <span class="hot">★</span>
+    <span>TAUGHT BY DAD. POWERED BY MORRIS_OPS. RUNNING ON THE LIVING ROOM TV.</span>
+    <span class="hot">★</span>
+  </div>
+</div>
+
+<!-- TABS -->
+<nav class="tabs">
+  <a class="tab" href="index.html">★ The Legend</a>
+  <a class="tab active" href="codeschool.html">⌨ CodeSchool 2.0</a>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="pic p1" style="background-image:url('486679889_2711020409107598_2855035459255971057_n.jpg')"></div>
+  <div class="pic p2" style="background-image:url('502568373_2783818711827767_39351133254780732_n.jpg')"></div>
+  <div class="hero-inner">
+    <div class="eyebrow">★ MORRIS_OPS DOJO ★ LIVING ROOM EDITION ★</div>
+    <h1>CodeSchool <span class="gold">2.0</span></h1>
+    <p class="subtitle">"Code Ninjas? Fine place. Love the spinning cat. But folks — we built something bigger.
+    Right here. On our own TV. Nine belts. A hundred missions. Believe me."</p>
+  </div>
+</header>
+
+<!-- PROGRESS -->
+<section style="background:linear-gradient(180deg,#0b0b10,#0a1b3d)">
+  <div class="wrap">
+    <h2>The Road To Black Belt</h2>
+    <p>One hundred missions from zero to game developer. Every mission you finish is <strong style="color:var(--gold)">+1%</strong>.
+    Finish every mission in a belt and the belt is yours. Finish all nine belts and you hit
+    <strong style="color:var(--gold)">100% — Black Belt. Game developer. The real thing.</strong>
+    Progress saves automatically on this screen.</p>
+
+    <div class="xp-card">
+      <div class="xp-head">
+        <div>
+          <div class="xp-title">★ RASCAL · CURRENT BELT</div>
+          <div class="belt-chip" id="beltChip" style="margin-top:12px">WHITE</div>
+          <p style="font-family:inherit;letter-spacing:3px;color:#fff;font-size:12px;margin-top:10px">CLASS: GAME DEV IN TRAINING · HOMESCHOOL ELITE</p>
+        </div>
+        <div class="belt-box">
+          <div class="pct-big" id="pctBig">0%</div>
+          <div class="belt-cap">OF THE WAY TO BLACK BELT</div>
+        </div>
+      </div>
+      <div class="xp-bar-outer">
+        <div class="xp-bar-inner" id="xpBar"></div>
+        <div class="xp-bar-label" id="xpLabel">0 / 100 MISSIONS</div>
+      </div>
+      <div class="xp-meta">
+        <div class="xp-cell"><div class="v" id="metaDone">0</div><div class="k">Missions Complete</div></div>
+        <div class="xp-cell"><div class="v" id="metaLeft">100</div><div class="k">Missions Remaining</div></div>
+        <div class="xp-cell"><div class="v" id="metaBelts">0 / 9</div><div class="k">Belts Earned</div></div>
+        <div class="xp-cell"><div class="v" id="metaNext">—</div><div class="k">Next Mission</div></div>
+      </div>
+      <div class="level-pips" id="pips" aria-label="course progress pips"></div>
+    </div>
+  </div>
+</section>
+
+<!-- BELT RACK -->
+<section style="background:#0b0b10">
+  <div class="wrap">
+    <h2>The Belt Rack</h2>
+    <p class="quote">"Nine belts. Same colors the ninjas use — but this rack hangs in OUR house. Every belt on it gets earned. Nothing is given. Tremendous system."</p>
+    <div class="belt-rack" id="beltRack"></div>
+  </div>
+</section>
+
+<!-- ARSENAL -->
+<section style="background:#0a1b3d">
+  <div class="wrap">
+    <h2>The Arsenal</h2>
+    <p>Three weapons. All free. All open source. The pros use the same ideas — we just start smaller.</p>
+    <div class="arsenal">
+      <a class="weapon" href="https://turbowarp.org" target="_blank" rel="noopener">
+        <div class="w-name">TurboWarp</div>
+        <div class="w-belt">WHITE → BLUE BELT</div>
+        <div class="w-desc">Scratch, but faster. Drag blocks, build games, make the cat do whatever you want. Already installed on the Big NUC — or click here to run it on this TV.</div>
+      </a>
+      <a class="weapon" href="https://arcade.makecode.com" target="_blank" rel="noopener">
+        <div class="w-name">MakeCode Arcade</div>
+        <div class="w-belt">PURPLE → BROWN BELT</div>
+        <div class="w-desc">Retro game maker with a secret switch: one click flips your blocks into real JavaScript. This is the bridge from blocks to typed code.</div>
+      </a>
+      <a class="weapon" href="https://scratch.mit.edu/ideas" target="_blank" rel="noopener">
+        <div class="w-name">The Idea Vault</div>
+        <div class="w-belt">EVERY BELT</div>
+        <div class="w-desc">Stuck? Scratch's idea library has starter projects and tutorials. Steal ideas like every great developer does — then build them better.</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION CHART -->
+<section style="background:#0b0b10">
+  <div class="wrap">
+    <h2>The 100 Missions</h2>
+    <p>Do them in order — each belt builds on the last. Click a mission when it's done. A line strikes through it, the bar goes up,
+    and when a belt is finished the whole room knows about it. Tap again to un-check.</p>
+    <div id="missionChart"></div>
+
+    <details class="admin-zone">
+      <summary>⚙ RESET ALL PROGRESS · DAD ONLY</summary>
+      <p style="color:#666;font-size:13px;font-family:'Georgia',serif;margin-top:10px">Wipes every checkmark on this screen. There is no undo. Use with extreme caution and fatherly authority.</p>
+      <button id="resetBtn">WIPE THE BOARD</button>
+    </details>
+  </div>
+</section>
+
+<div class="motto">"He Came For The Spinning Cat. He Left A Game Developer."</div>
+
+<!-- HOUSE RULES -->
+<section style="background:#0a1b3d">
+  <div class="wrap">
+    <h2>Dojo House Rules</h2>
+    <div class="rules-grid">
+      <div class="rule"><div class="r-num">1</div><div class="r-text">Finished beats perfect. A small game that works beats a giant game that doesn't.</div></div>
+      <div class="rule"><div class="r-num">2</div><div class="r-text">Bugs are not failures. Bugs are bosses. Every developer on Earth fights them daily.</div></div>
+      <div class="rule"><div class="r-num">3</div><div class="r-text">When you're stuck for more than 15 minutes, ask Dad. Asking is a developer skill, not a weakness.</div></div>
+      <div class="rule"><div class="r-num">4</div><div class="r-text">Save your work. Then save it again. The GAMES folder is sacred ground.</div></div>
+      <div class="rule"><div class="r-num">5</div><div class="r-text">One mission at a time. The belt rack fills itself if you just keep showing up.</div></div>
+      <div class="rule"><div class="r-num">6</div><div class="r-text">Ship it. Every belt ends with something the family can actually play. That's the whole point.</div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="seal2">★ RASCAL CODESCHOOL · EST. 2026 ★</div>
+  <p>Jamieson Rascal · Game Developer In Training · 100 Missions · Zero Tuition · Unlimited Snacks.</p>
+  <p style="margin-top:10px;color:#555">Built with way too much love by Dad · MORRIS_OPS</p>
+</footer>
+
+<div id="rain" aria-hidden="true"></div>
+<div class="toast" id="toast">BELT EARNED!</div>
+
+<script>
+/* ============================================================
+   THE COURSE: 9 BELTS · 100 MISSIONS · 1 MISSION = 1%
+   ============================================================ */
+const BELTS = [
+  {
+    key: "white", name: "White Belt", color: "#f5f5f5", ink: "#111",
+    motto: "The Spinning Cat — everything starts here.",
+    missions: [
+      "Open TurboWarp. Meet the cat. Click the green flag and the red stop sign — that's run and stop.",
+      "THE CLASSIC: make the cat spin. Forever block + turn 15 degrees. You already know this one.",
+      "Make the cat spin the OTHER way, twice as fast. Change the number, see what happens.",
+      "Green flag clicked → cat says \"Hello, I'm Rascal's cat!\" for 2 seconds.",
+      "Use a glide block to send the cat to a random position. Run it five times.",
+      "Use looks blocks to change the cat's color effect every time you click it.",
+      "Add a backdrop from the library. Then draw your own backdrop, even a bad one.",
+      "Make the cat follow the mouse pointer forever. Now it's YOUR cat.",
+      "Add a sound from the library that plays when the cat is clicked.",
+      "Save the project as a file into the GAMES folder. Name it yourself. Saving is mission-critical.",
+    ],
+  },
+  {
+    key: "yellow", name: "Yellow Belt", color: "#f9a825", ink: "#111",
+    motto: "Control the player — keys in, movement out.",
+    missions: [
+      "Make the cat move right when the right arrow is pressed. Then add left, up, down.",
+      "Upgrade to smooth movement: a forever loop with \"if key pressed\" inside. Feel the difference.",
+      "Use \"if on edge, bounce\" so the cat can never escape the screen.",
+      "Make the cat jump when the space bar is pressed.",
+      "Make the cat fall back down after the jump, like gravity is real.",
+      "Animation: switch costumes while walking with \"next costume\". The cat comes alive.",
+      "Make the cat face the way it's moving — and fix the upside-down flip with rotation style.",
+      "Add a second sprite: a dog that slowly chases the cat forever.",
+      "Use the \"touching?\" block — when the dog touches the cat, the cat yells OUCH.",
+      "When the green flag is clicked, everything resets to its starting spot. Clean starts. Always.",
+    ],
+  },
+  {
+    key: "orange", name: "Orange Belt", color: "#ef6c00", ink: "#fff",
+    motto: "Score, sound, and variables — now it's a game.",
+    missions: [
+      "Make your first variable. Name it SCORE. Set it to 0 when the flag is clicked.",
+      "Add a coin sprite. Cat touches it → SCORE goes up by 1 and the coin jumps somewhere new.",
+      "Make a TIMER variable that counts down from 30. One second at a time.",
+      "When the timer hits 0, broadcast GAME OVER and show a game over screen.",
+      "Play a sound every time a coin is grabbed. Coins should feel good.",
+      "Loop background music for the whole game. Pick something that slaps.",
+      "Make a HIGH SCORE variable that keeps the best score even after a restart.",
+      "Make the dog speed up every 5 coins. This is called a difficulty curve. Real designers obsess over it.",
+      "Build a title screen: game waits until SPACE is pressed, then broadcasts START.",
+      "Show Dad the full loop: title → play → game over → play again. No broken parts allowed.",
+    ],
+  },
+  {
+    key: "green", name: "Green Belt", color: "#2e7d32", ink: "#fff",
+    motto: "Ship your first real game: Coin Chase 1.0.",
+    missions: [
+      "Plan on paper first: who is the player, what is the goal, what is the danger, how do you win.",
+      "Name your game studio. Make a logo in the paint editor. Every great developer has one.",
+      "Build a 3-lives system with heart sprites that disappear when you get hit.",
+      "After a hit, make the player flash and be safe for 2 seconds. That's invincibility frames.",
+      "Use clone blocks to spawn 5 coins at once instead of one. Clones are a superpower.",
+      "Give the dog a patrol pattern instead of a straight chase. Smarter enemies, better game.",
+      "Win condition: 20 coins = YOU WIN screen with its own music.",
+      "Add juice: screen flash on hit, confetti on win. Games should FEEL alive.",
+      "Playtest: Dad plays for 5 minutes and finds one problem. Fix that problem.",
+      "SHIP IT: save the final file, put it on the TV, and run family game night with YOUR game.",
+      "Victory lap: add your game to the GAMES folder hall of fame with a title card.",
+    ],
+  },
+  {
+    key: "blue", name: "Blue Belt", color: "#1565c0", ink: "#fff",
+    motto: "Levels, worlds, and a boss fight.",
+    missions: [
+      "Use backdrops as levels: reach the right edge of level 1 → level 2 appears.",
+      "Make a LEVEL variable that controls how fast enemies are and how many coins spawn.",
+      "Build a moving platform the player can ride.",
+      "Build a simple platformer engine: gravity, jumping, and standing on the ground.",
+      "Add spikes. Touch them and the level restarts. Fair but mean.",
+      "Hide a key in the level that opens a locked door. Players love keys.",
+      "Checkpoints: die after a checkpoint, restart at the checkpoint. Mercy is good design.",
+      "BOSS LEVEL: a big enemy with its own health bar that takes 5 hits.",
+      "Hide a secret room or easter egg somewhere. Tell no one. Let them find it.",
+      "Add a pause button. Even legends need snack breaks.",
+      "Ship game #2: a three-level platformer with a boss. Family plays it on the TV.",
+    ],
+  },
+  {
+    key: "purple", name: "Purple Belt", color: "#6a1b9a", ink: "#fff",
+    motto: "See the code — the bridge from blocks to JavaScript.",
+    missions: [
+      "Open MakeCode Arcade. New dojo, same ideas. Make a sprite and move it with arrows in 10 minutes.",
+      "Find the magic switch: flip your blocks into JavaScript view. Look at what YOU built as real code.",
+      "Read your JavaScript out loud to Dad. Every line. It's just your blocks wearing a suit.",
+      "Change one number in JavaScript view instead of blocks view. Flip back. The blocks changed too.",
+      "Write your first typed line: change the player speed in JavaScript without touching blocks.",
+      "Declare a variable in code: let score = 0 — same idea as Scratch, different costume.",
+      "Write an if statement in JavaScript: touching a coin makes the score go up.",
+      "Write a function in JavaScript and call it. A function is just a custom block.",
+      "Build a mini-game where at least half the work was done in JavaScript view.",
+      "Draw your own pixel-art hero in the sprite editor. No more borrowed cats.",
+      "Compose a victory tune in the music editor. Three seconds of glory.",
+      "Ship game #3: a MakeCode Arcade game — started in blocks, finished in code.",
+    ],
+  },
+  {
+    key: "brown", name: "Brown Belt", color: "#5d4037", ink: "#fff",
+    motto: "Real JavaScript — no blocks allowed.",
+    missions: [
+      "Start a new MakeCode game in JavaScript-only view. The blocks are gone. You're ready.",
+      "Write a for loop that spawns 10 enemies. Ten lines of work in three lines of code.",
+      "Use an array to keep a list of high scores. Arrays are lists. Lists run the world.",
+      "Write a function with an input: spawnEnemy(speed). Call it with different speeds.",
+      "Use random numbers in code to drop loot. Sometimes a gem, usually nothing. That's loot.",
+      "Build menu, playing, and game-over states in pure code with a state variable.",
+      "Open a finished example game and explain three parts of its code to Dad.",
+      "DEBUG DUEL: Dad breaks your game in three places on purpose. Find and fix all three.",
+      "Typing training: hit 15 words per minute. Fast fingers, fast ideas.",
+      "Keep a CHANGELOG: every session, write one line about what changed. Pros do exactly this.",
+      "Build Rock-Paper-Scissors entirely in typed code. No sprites needed. Pure logic.",
+      "Ship game #4: 100% typed JavaScript, zero blocks. Frame this one.",
+    ],
+  },
+  {
+    key: "red", name: "Red Belt", color: "#c8102e", ink: "#fff",
+    motto: "Game designer — original ideas only.",
+    missions: [
+      "Invent an ORIGINAL game. Not a copy. Write a one-page design doc: hook, rules, win, lose.",
+      "Paper prototype: play your game with paper, dice, or cards before writing any code.",
+      "Build the core loop — the one thing players do over and over — in one week.",
+      "Design the difficulty curve on purpose: easy start, fair middle, hard finish.",
+      "UX test: Mom plays with ZERO help from you. Watch where she gets stuck. Say nothing.",
+      "Build the tutorial INTO the game. If you have to explain it out loud, the game isn't done.",
+      "Sound design pass: every action the player does makes a sound that fits.",
+      "Art pass: one style, every screen. No mixed-up sprites. Consistency is what pro looks like.",
+      "Recruit 3 playtesters. Collect their complaints. Change the 2 biggest ones.",
+      "Make a poster and a one-line pitch for your game. Marketing is part of shipping.",
+      "VERSION 1.0 RELEASE NIGHT: the family plays your original game on the TV.",
+      "Postmortem with Dad: what worked, what was hard, what you'd do differently. Write it down.",
+    ],
+  },
+  {
+    key: "black", name: "Black Belt", color: "#111", ink: "#f5c04a",
+    motto: "The real deal — a real engine, a real shipped game.",
+    missions: [
+      "Pick your engine with Dad: Godot or Phaser. Take the tour of each. Choose your weapon.",
+      "Install it on the dev machine. Get Hello World on screen. Hardest step of any project.",
+      "Complete the engine's official first-2D-game tutorial. All the way. No skipping.",
+      "Rebuild your Red Belt game in the real engine. Same game, professional tools.",
+      "Add one thing Scratch could never do: real saving, particle effects, or a huge map.",
+      "Organize the project like a pro: folders for art, sound, code. No junk drawer projects.",
+      "Put your code on GitHub with Dad. Now it's backed up and versioned forever.",
+      "Export a real build — a playable file that runs without the editor.",
+      "Install your game on the living room TV box so anyone can play it any time.",
+      "Teach it back: show a friend or cousin how to make the cat spin. The circle completes.",
+      "Design your NEXT game — bigger scope, real plan, like a pro starting a real project.",
+      "BLACK BELT CEREMONY: Dad hands you the belt. 100%. You are a game developer. Believe me.",
+    ],
+  },
+];
+
+/* ============================================================
+   STATE + PERSISTENCE
+   ============================================================ */
+const LS_DONE = "rascal_codeschool_done_v1";
+
+function loadDone() {
+  try { return new Set(JSON.parse(localStorage.getItem(LS_DONE) || "[]")); }
+  catch { return new Set(); }
+}
+function saveDone(set) { localStorage.setItem(LS_DONE, JSON.stringify([...set])); }
+
+const done = loadDone();
+
+function missionId(beltKey, idx) { return beltKey + "_" + (idx + 1); }
+function allMissions() {
+  const out = [];
+  BELTS.forEach(b => b.missions.forEach((m, i) => out.push({ id: missionId(b.key, i), belt: b, text: m })));
+  return out;
+}
+const MISSIONS = allMissions();
+const TOTAL = MISSIONS.length; // 100
+
+function beltDoneCount(belt) {
+  return belt.missions.filter((_, i) => done.has(missionId(belt.key, i))).length;
+}
+function beltEarned(belt) { return beltDoneCount(belt) === belt.missions.length; }
+function earnedBelts() { return BELTS.filter(beltEarned).length; }
+function currentBelt() { return BELTS.find(b => !beltEarned(b)) || BELTS[BELTS.length - 1]; }
+function nextMission() { return MISSIONS.find(m => !done.has(m.id)); }
+
+/* ============================================================
+   RENDER
+   ============================================================ */
+function render() {
+  const doneCount = MISSIONS.filter(m => done.has(m.id)).length;
+  const pct = Math.round((doneCount / TOTAL) * 100);
+  const cur = currentBelt();
+  const next = nextMission();
+
+  const chip = document.getElementById("beltChip");
+  chip.textContent = doneCount === TOTAL ? "BLACK · MAX" : cur.name.replace(" Belt", "").toUpperCase();
+  chip.style.background = cur.color;
+  chip.style.color = cur.ink;
+
+  document.getElementById("pctBig").textContent = pct + "%";
+  document.getElementById("xpBar").style.width = pct + "%";
+  document.getElementById("xpLabel").textContent = `${doneCount} / ${TOTAL} MISSIONS`;
+  document.getElementById("metaDone").textContent = doneCount;
+  document.getElementById("metaLeft").textContent = TOTAL - doneCount;
+  document.getElementById("metaBelts").textContent = `${earnedBelts()} / ${BELTS.length}`;
+  document.getElementById("metaNext").textContent = next ? next.id.toUpperCase().replace("_", "·") : "DONE";
+
+  // pips
+  const pips = document.getElementById("pips");
+  pips.innerHTML = "";
+  for (let i = 0; i < TOTAL; i++) {
+    const p = document.createElement("div");
+    p.className = "pip" + (i < doneCount ? " done" : "");
+    pips.appendChild(p);
+  }
+
+  renderRack();
+  renderChart();
+}
+
+function renderRack() {
+  const rack = document.getElementById("beltRack");
+  rack.innerHTML = "";
+  const cur = currentBelt();
+  BELTS.forEach(b => {
+    const c = beltDoneCount(b);
+    const card = document.createElement("div");
+    card.className = "belt-card" + (beltEarned(b) ? " earned" : (b === cur ? " current" : ""));
+    card.innerHTML = `
+      <div class="strap" style="background:${b.color}"></div>
+      <div class="bname">${b.name.replace(" Belt", "")}</div>
+      <div class="bcount">${c} / ${b.missions.length}</div>
+    `;
+    rack.appendChild(card);
+  });
+}
+
+function renderChart() {
+  const chart = document.getElementById("missionChart");
+  chart.innerHTML = "";
+  const next = nextMission();
+  BELTS.forEach(b => {
+    const sec = document.createElement("div");
+    sec.className = "belt-section";
+    sec.style.borderLeft = `6px solid ${b.color}`;
+    sec.innerHTML = `
+      <div class="belt-head">
+        <div>
+          <h3>${b.name}</h3>
+          <div class="belt-motto">${b.motto}</div>
+        </div>
+        <div class="belt-progress">${beltDoneCount(b)} / ${b.missions.length} ${beltEarned(b) ? "· EARNED ★" : ""}</div>
+      </div>
+    `;
+    b.missions.forEach((m, i) => {
+      const id = missionId(b.key, i);
+      const row = document.createElement("div");
+      row.className = "mission-row"
+        + (done.has(id) ? " done" : "")
+        + (next && next.id === id ? " next" : "");
+      row.innerHTML = `
+        <div class="chk"></div>
+        <div class="m-name">${m}</div>
+        <div class="m-xp">+1%</div>
+      `;
+      row.addEventListener("click", () => toggleMission(id));
+      sec.appendChild(row);
+    });
+    chart.appendChild(sec);
+  });
+}
+
+/* ============================================================
+   TOGGLE + CELEBRATIONS
+   ============================================================ */
+function toggleMission(id) {
+  const beltsBefore = earnedBelts();
+  const doneBefore = MISSIONS.filter(m => done.has(m.id)).length;
+
+  if (done.has(id)) done.delete(id);
+  else done.add(id);
+  saveDone(done);
+  render();
+
+  const beltsAfter = earnedBelts();
+  const doneAfter = MISSIONS.filter(m => done.has(m.id)).length;
+
+  if (doneAfter === TOTAL && doneBefore < TOTAL) {
+    fireToast("★ 100% · BLACK BELT · GAME DEVELOPER ★");
+    brickRain(120);
+  } else if (beltsAfter > beltsBefore) {
+    const justEarned = BELTS.filter(beltEarned).pop();
+    fireToast(`★ ${justEarned.name.toUpperCase()} EARNED ★`);
+    brickRain(50);
+  } else if (doneAfter > doneBefore) {
+    brickRain(8);
+  }
+}
+
+const toast = document.getElementById("toast");
+function fireToast(msg) {
+  toast.textContent = msg;
+  toast.classList.add("show");
+  clearTimeout(fireToast._t);
+  fireToast._t = setTimeout(() => toast.classList.remove("show"), 3000);
+}
+
+/* BRICK RAIN (house tradition) */
+const COLORS = ["#c8102e","#1565c0","#2e7d32","#f9a825","#111","#f5c04a"];
+function brickRain(count = 60) {
+  const rain = document.getElementById("rain");
+  for (let i = 0; i < count; i++) {
+    const b = document.createElement("div");
+    b.className = "falling";
+    b.style.background = COLORS[Math.floor(Math.random() * COLORS.length)];
+    b.style.left = Math.random() * 100 + "vw";
+    b.style.animation = `drop ${3 + Math.random() * 3}s linear ${Math.random() * 1.5}s forwards`;
+    b.style.transform = `rotate(${Math.random() * 360}deg)`;
+    rain.appendChild(b);
+    setTimeout(() => b.remove(), 7000);
+  }
+}
+const rainStyle = document.createElement("style");
+rainStyle.textContent = `@keyframes drop { to { top: 110vh; transform: rotate(720deg); } }`;
+document.head.appendChild(rainStyle);
+
+/* RESET */
+document.getElementById("resetBtn").addEventListener("click", () => {
+  if (!confirm("Wipe ALL CodeSchool progress on this screen? This cannot be undone.")) return;
+  done.clear();
+  saveDone(done);
+  render();
+});
+
+/* INITIAL RENDER */
+render();
+</script>
+</body>
+</html>

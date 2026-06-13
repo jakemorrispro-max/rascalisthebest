@@ -30,6 +30,21 @@
   .ticker .hot { color: var(--gold); }
   @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
 
+  /* === SITE TABS === */
+  .tabs {
+    display: flex; justify-content: center; gap: 0;
+    background: #050814; border-bottom: 4px solid var(--gold);
+  }
+  .tab {
+    padding: 16px 34px; text-decoration: none; color: var(--paper);
+    font-size: 18px; letter-spacing: 3px; text-transform: uppercase;
+    border-left: 1px solid #1c1c28; border-right: 1px solid #1c1c28;
+    transition: background .2s, color .2s;
+  }
+  .tab:hover { background: #16244e; color: var(--gold); }
+  .tab.active { background: var(--gold); color: var(--ink); }
+  @media (max-width: 520px) { .tab { padding: 13px 16px; font-size: 14px; } }
+
   /* === HERO COLLAGE === */
   .hero {
     position: relative; min-height: 92vh; overflow: hidden;
@@ -466,6 +481,12 @@
     <span class="hot">★</span>
   </div>
 </div>
+
+<!-- TABS -->
+<nav class="tabs">
+  <a class="tab active" href="index.html">★ The Legend</a>
+  <a class="tab" href="codeschool.html">⌨ CodeSchool 2.0</a>
+</nav>
 
 <!-- HERO -->
 <header class="hero">
