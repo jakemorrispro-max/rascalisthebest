@@ -14,7 +14,11 @@
     --green:#2e7d32;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html, body { background: var(--ink); color: var(--paper); font-family: "Impact","Oswald","Arial Black",sans-serif; letter-spacing: .5px; overflow-x: hidden; }
+  html, body {
+    background: var(--ink); color: var(--paper);
+    font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    letter-spacing: .2px; overflow-x: hidden;
+  }
   a { color: var(--gold); }
 
   /* === TICKER === */
@@ -23,7 +27,7 @@
     background: var(--red); color: #fff;
     border-bottom: 5px solid var(--gold);
     overflow: hidden; white-space: nowrap;
-    font-size: 28px; padding: 16px 0; letter-spacing: 1px;
+    font-size: 22px; font-weight: 700; padding: 16px 0; letter-spacing: 1px;
   }
   .ticker-track { display: inline-block; padding-left: 100%; animation: marquee 38s linear infinite; }
   .ticker span { margin: 0 48px; }
@@ -37,13 +41,13 @@
   }
   .tab {
     padding: 16px 34px; text-decoration: none; color: var(--paper);
-    font-size: 18px; letter-spacing: 3px; text-transform: uppercase;
+    font-size: 16px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
     border-left: 1px solid #1c1c28; border-right: 1px solid #1c1c28;
     transition: background .2s, color .2s;
   }
   .tab:hover { background: #16244e; color: var(--gold); }
   .tab.active { background: var(--gold); color: var(--ink); }
-  @media (max-width: 520px) { .tab { padding: 13px 16px; font-size: 14px; } }
+  @media (max-width: 520px) { .tab { padding: 13px 16px; font-size: 13px; } }
 
   /* === HERO === */
   .hero {
@@ -66,19 +70,19 @@
     background: rgba(10,27,61,.72); backdrop-filter: blur(4px);
     border: 3px solid var(--gold); padding: 38px 28px; border-radius: 6px;
   }
-  .eyebrow { color: var(--gold); font-size: 14px; letter-spacing: 4px; }
+  .eyebrow { color: var(--gold); font-size: 13px; font-weight: 700; letter-spacing: 4px; }
   h1 {
-    font-size: clamp(38px, 6vw, 86px); line-height: .95;
+    font-size: clamp(34px, 5.5vw, 76px); line-height: 1; font-weight: 800;
     color: var(--paper); text-shadow: 0 4px 0 var(--red), 0 6px 14px rgba(0,0,0,.6);
     margin: 10px 0 14px; text-transform: uppercase;
   }
   h1 .gold { color: var(--gold); }
-  .subtitle { font-size: clamp(16px, 2vw, 22px); font-family: "Georgia",serif; font-weight: bold; font-style: italic; color: #fff; }
+  .subtitle { font-size: clamp(16px, 2vw, 21px); font-family: "Georgia",serif; font-weight: bold; font-style: italic; color: #fff; }
 
   section { padding: 72px 24px; position: relative; }
   .wrap { max-width: 1100px; margin: 0 auto; }
   h2 {
-    font-size: clamp(30px, 4vw, 56px); text-transform: uppercase; color: var(--gold);
+    font-size: clamp(26px, 3.5vw, 46px); font-weight: 800; text-transform: uppercase; color: var(--gold);
     border-bottom: 4px solid var(--red); padding-bottom: 10px; margin-bottom: 28px;
   }
   p  { font-family: "Georgia",serif; font-size: 17px; line-height: 1.55; color: #e9e6dd; margin-bottom: 12px; }
@@ -101,15 +105,15 @@
     pointer-events: none;
   }
   .xp-head { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 12px; margin-bottom: 16px; }
-  .xp-title { font-size: 31px; color: var(--gold); letter-spacing: 3px; }
+  .xp-title { font-size: 26px; font-weight: 800; color: var(--gold); letter-spacing: 2px; }
   .belt-box { text-align: right; }
   .belt-chip {
     display: inline-block; padding: 10px 26px; border: 3px solid var(--gold);
-    font-size: 26px; letter-spacing: 4px; text-transform: uppercase;
+    font-size: 24px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase;
     text-shadow: 0 1px 3px rgba(0,0,0,.6);
   }
-  .belt-box .belt-cap { color: var(--gold); letter-spacing: 4px; font-size: 14px; margin-top: 8px; }
-  .pct-big { font-size: 80px; line-height: 1; color: var(--paper); text-shadow: 0 3px 0 var(--red); }
+  .belt-box .belt-cap { color: var(--gold); font-weight: 700; letter-spacing: 3px; font-size: 13px; margin-top: 8px; }
+  .pct-big { font-size: 72px; font-weight: 800; line-height: 1; color: var(--paper); text-shadow: 0 3px 0 var(--red); }
   .xp-bar-outer {
     height: 36px; background: #000; border: 3px solid var(--gold); border-radius: 4px;
     position: relative; overflow: hidden;
@@ -121,14 +125,14 @@
   }
   .xp-bar-label {
     position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
-    color: #fff; letter-spacing: 3px; font-size: 16px; text-shadow: 0 1px 2px #000;
+    color: #fff; font-weight: 700; letter-spacing: 2px; font-size: 15px; text-shadow: 0 1px 2px #000;
   }
   .xp-meta {
     display: grid; grid-template-columns: repeat(auto-fit,minmax(170px,1fr)); gap: 12px; margin-top: 20px;
   }
   .xp-cell { background: rgba(0,0,0,.35); border: 2px solid var(--gold); padding: 14px; text-align: center; }
-  .xp-cell .v { color: var(--gold); font-size: 31px; }
-  .xp-cell .k { color: #fff; letter-spacing: 2px; font-size: 13px; margin-top: 4px; }
+  .xp-cell .v { color: var(--gold); font-size: 28px; font-weight: 800; }
+  .xp-cell .k { color: #fff; font-weight: 600; letter-spacing: 1.5px; font-size: 12px; margin-top: 4px; text-transform: uppercase; }
   .level-pips { display: grid; grid-template-columns: repeat(50, 1fr); gap: 3px; margin-top: 20px; }
   .pip { height: 10px; background: #1a1a22; border-radius: 1px; }
   .pip.done { background: var(--gold); box-shadow: 0 0 4px var(--gold); }
@@ -140,8 +144,8 @@
     text-align: center; transition: border-color .3s, box-shadow .3s, transform .3s;
   }
   .belt-card .strap { height: 26px; border-radius: 3px; margin-bottom: 10px; box-shadow: inset 0 -7px 0 rgba(0,0,0,.3); border: 1px solid rgba(0,0,0,.4); }
-  .belt-card .bname { font-size: 13px; letter-spacing: 2px; color: #777; text-transform: uppercase; }
-  .belt-card .bcount { font-size: 11px; letter-spacing: 2px; color: #555; margin-top: 4px; }
+  .belt-card .bname { font-size: 12px; font-weight: 700; letter-spacing: 1.5px; color: #777; text-transform: uppercase; }
+  .belt-card .bcount { font-size: 11px; font-weight: 600; letter-spacing: 1.5px; color: #555; margin-top: 4px; }
   .belt-card.earned { border-color: var(--gold); box-shadow: 0 0 18px rgba(245,192,74,.35); transform: translateY(-3px); }
   .belt-card.earned .bname { color: var(--gold); }
   .belt-card.earned .bcount { color: var(--paper); }
@@ -155,15 +159,15 @@
     padding-left: 14px; margin-bottom: 4px;
   }
   .belt-head h3 {
-    color: var(--paper); font-size: 24px; text-transform: uppercase; letter-spacing: 3px;
+    color: var(--paper); font-size: 22px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px;
   }
   .belt-head .belt-motto { font-family: "Georgia",serif; font-style: italic; font-size: 15px; color: #9a968c; }
-  .belt-head .belt-progress { color: var(--gold); letter-spacing: 3px; font-size: 14px; }
+  .belt-head .belt-progress { color: var(--gold); font-weight: 700; letter-spacing: 2px; font-size: 13px; }
   .mission-row {
     display: flex; align-items: center; gap: 14px;
     padding: 13px 14px; border-bottom: 1px solid #1c1c28;
     cursor: pointer; transition: background .15s;
-    font-size: 17px;
+    font-size: 16px;
   }
   .mission-row:hover { background: rgba(245,192,74,.05); }
   .mission-row.done { opacity: .38; text-decoration: line-through; }
@@ -171,15 +175,32 @@
   .mission-row.next { background: rgba(245,192,74,.08); border-left: 4px solid var(--gold); }
   .mission-row.next .m-name::after {
     content: "▶ UP NEXT"; margin-left: 12px; color: var(--ink); background: var(--gold);
-    font-size: 11px; letter-spacing: 2px; padding: 2px 8px; vertical-align: 2px;
+    font-size: 10px; font-weight: 800; letter-spacing: 1.5px; padding: 2px 8px; vertical-align: 2px;
   }
   .chk {
     flex: 0 0 30px; width: 30px; height: 30px; border: 2px solid var(--gold);
     display: flex; align-items: center; justify-content: center; font-size: 20px;
   }
   .mission-row.done .chk::before { content: "✓"; color: #fff; }
-  .m-name { flex: 1; color: var(--paper); letter-spacing: 1px; line-height: 1.3; }
-  .m-xp { color: var(--gold); font-size: 12px; letter-spacing: 2px; flex: 0 0 auto; }
+  .m-name { flex: 1; color: var(--paper); line-height: 1.4; }
+  .m-xp { color: var(--gold); font-size: 11px; font-weight: 700; letter-spacing: 1.5px; flex: 0 0 auto; }
+  .how-btn {
+    flex: 0 0 auto; background: transparent; border: 2px solid var(--gold); color: var(--gold);
+    font-family: inherit; font-size: 11px; font-weight: 800; letter-spacing: 1.5px;
+    padding: 6px 12px; cursor: pointer; text-transform: uppercase; transition: background .15s, color .15s;
+  }
+  .how-btn:hover, .how-btn.open { background: var(--gold); color: var(--ink); }
+  .how-panel {
+    background: rgba(10,27,61,.55); border-left: 4px solid var(--gold);
+    border-bottom: 1px solid #1c1c28;
+    margin: 0; padding: 16px 22px 16px 60px;
+  }
+  .how-panel .how-title { color: var(--gold); font-size: 12px; font-weight: 800; letter-spacing: 2px; margin-bottom: 10px; text-transform: uppercase; }
+  .how-panel ol { margin-left: 20px; }
+  .how-panel li {
+    color: #e9e6dd; font-size: 15px; line-height: 1.55; margin-bottom: 8px;
+  }
+  .how-panel li:last-child { margin-bottom: 0; }
 
   /* === ARSENAL === */
   .arsenal { display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 18px; }
@@ -189,8 +210,8 @@
     padding: 26px 22px; transition: transform .2s, box-shadow .2s;
   }
   .weapon:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,0,0,.5); }
-  .weapon .w-name { color: var(--gold); font-size: 24px; letter-spacing: 2px; text-transform: uppercase; }
-  .weapon .w-belt { color: #fff; font-size: 12px; letter-spacing: 3px; margin: 6px 0 10px; }
+  .weapon .w-name { color: var(--gold); font-size: 22px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; }
+  .weapon .w-belt { color: #fff; font-size: 11px; font-weight: 700; letter-spacing: 2px; margin: 6px 0 10px; }
   .weapon .w-desc { font-family: "Georgia",serif; font-size: 15px; color: #e9e6dd; line-height: 1.5; }
 
   /* === HOUSE RULES === */
@@ -199,30 +220,30 @@
     background: rgba(255,255,255,.03); border: 2px solid #2a2a35; border-top: 4px solid var(--gold);
     padding: 20px;
   }
-  .rule .r-num { color: var(--gold); font-size: 34px; }
+  .rule .r-num { color: var(--gold); font-size: 30px; font-weight: 800; }
   .rule .r-text { font-family: "Georgia",serif; font-size: 15px; color: #e9e6dd; line-height: 1.5; margin-top: 6px; }
 
   /* RESET — hidden collapse */
   .admin-zone { margin-top: 40px; border-top: 1px dashed #444; padding-top: 30px; }
   .admin-zone summary {
-    cursor: pointer; font-size: 12px; letter-spacing: 4px; color: #666;
+    cursor: pointer; font-size: 12px; font-weight: 700; letter-spacing: 3px; color: #666;
     padding: 8px 0; list-style: none; user-select: none;
   }
   .admin-zone summary::-webkit-details-marker { display: none; }
   .admin-zone summary:hover { color: var(--gold); }
   .admin-zone button {
     margin-top: 14px; background: var(--red); color: #fff; border: 2px solid var(--gold);
-    font-family: inherit; padding: 10px 18px; letter-spacing: 3px; cursor: pointer; font-size: 14px;
+    font-family: inherit; font-weight: 700; padding: 10px 18px; letter-spacing: 2px; cursor: pointer; font-size: 13px;
   }
   .admin-zone button:hover { background: var(--gold); color: var(--ink); }
 
   .motto {
     background: var(--gold); color: var(--ink); padding: 30px 20px; text-align: center;
-    font-size: clamp(22px, 3vw, 40px); text-transform: uppercase;
+    font-size: clamp(20px, 2.6vw, 34px); font-weight: 800; text-transform: uppercase;
     border-top: 4px solid var(--red); border-bottom: 4px solid var(--red);
   }
   footer { background: #000; padding: 40px 20px; text-align: center; color: #888; font-family: "Georgia",serif; font-size: 13px; }
-  footer .seal2 { color: var(--gold); letter-spacing: 4px; font-family: inherit; margin-bottom: 10px; }
+  footer .seal2 { color: var(--gold); font-family: inherit; font-weight: 700; letter-spacing: 3px; margin-bottom: 10px; }
 
   /* BRICK RAIN + TOAST */
   #rain { position: fixed; inset: 0; pointer-events: none; z-index: 90; overflow: hidden; }
@@ -234,7 +255,7 @@
     position: fixed; top: 24px; left: 50%; transform: translateX(-50%) translateY(-80px);
     background: var(--gold); color: var(--ink); padding: 16px 28px;
     border: 4px solid var(--red); z-index: 100;
-    font-size: 22px; letter-spacing: 3px; text-transform: uppercase;
+    font-size: 20px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;
     box-shadow: 0 10px 40px rgba(0,0,0,.6);
     transition: transform .5s cubic-bezier(.2,.9,.2,1);
   }
@@ -243,7 +264,8 @@
   @media (max-width: 720px) {
     .hero .pic { display: none; }
     .level-pips { grid-template-columns: repeat(25, 1fr); }
-    .mission-row { font-size: 15px; }
+    .mission-row { font-size: 15px; flex-wrap: wrap; }
+    .how-panel { padding-left: 24px; }
   }
 </style>
 </head>
@@ -289,14 +311,14 @@
     <p>One hundred missions from zero to game developer. Every mission you finish is <strong style="color:var(--gold)">+1%</strong>.
     Finish every mission in a belt and the belt is yours. Finish all nine belts and you hit
     <strong style="color:var(--gold)">100% — Black Belt. Game developer. The real thing.</strong>
-    Progress saves automatically on this screen.</p>
+    Progress saves automatically on this screen. Stuck on a mission? Hit its <strong style="color:var(--gold)">HOW</strong> button for step-by-step sensei instructions.</p>
 
     <div class="xp-card">
       <div class="xp-head">
         <div>
           <div class="xp-title">★ RASCAL · CURRENT BELT</div>
           <div class="belt-chip" id="beltChip" style="margin-top:12px">WHITE</div>
-          <p style="font-family:inherit;letter-spacing:3px;color:#fff;font-size:12px;margin-top:10px">CLASS: GAME DEV IN TRAINING · HOMESCHOOL ELITE</p>
+          <p style="font-family:inherit;font-weight:600;letter-spacing:2px;color:#fff;font-size:11px;margin-top:10px">CLASS: GAME DEV IN TRAINING · HOMESCHOOL ELITE</p>
         </div>
         <div class="belt-box">
           <div class="pct-big" id="pctBig">0%</div>
@@ -357,7 +379,8 @@
   <div class="wrap">
     <h2>The 100 Missions</h2>
     <p>Do them in order — each belt builds on the last. Click a mission when it's done. A line strikes through it, the bar goes up,
-    and when a belt is finished the whole room knows about it. Tap again to un-check.</p>
+    and when a belt is finished the whole room knows about it. Tap again to un-check.
+    Every mission has a <strong style="color:var(--gold)">HOW</strong> button with exact steps — which blocks, where to click, and why it matters.</p>
     <div id="missionChart"></div>
 
     <details class="admin-zone">
@@ -397,160 +420,466 @@
 <script>
 /* ============================================================
    THE COURSE: 9 BELTS · 100 MISSIONS · 1 MISSION = 1%
+   Each mission: t = title, how = sensei steps shown by the HOW button
    ============================================================ */
 const BELTS = [
   {
     key: "white", name: "White Belt", color: "#f5f5f5", ink: "#111",
     motto: "The Spinning Cat — everything starts here.",
     missions: [
-      "Open TurboWarp. Meet the cat. Click the green flag and the red stop sign — that's run and stop.",
-      "THE CLASSIC: make the cat spin. Forever block + turn 15 degrees. You already know this one.",
-      "Make the cat spin the OTHER way, twice as fast. Change the number, see what happens.",
-      "Green flag clicked → cat says \"Hello, I'm Rascal's cat!\" for 2 seconds.",
-      "Use a glide block to send the cat to a random position. Run it five times.",
-      "Use looks blocks to change the cat's color effect every time you click it.",
-      "Add a backdrop from the library. Then draw your own backdrop, even a bad one.",
-      "Make the cat follow the mouse pointer forever. Now it's YOUR cat.",
-      "Add a sound from the library that plays when the cat is clicked.",
-      "Save the project as a file into the GAMES folder. Name it yourself. Saving is mission-critical.",
+      { t: "Open TurboWarp. Meet the cat. Find the green flag and the red stop sign.",
+        how: ["Double-click the TurboWarp icon on the desktop (or go to turbowarp.org in a browser).",
+              "The orange cat in the middle is a SPRITE — an actor in your game. Everything on screen is a sprite.",
+              "The green flag at the top runs your project. The red stop sign stops it. Click both once so you know where they live."] },
+      { t: "THE CLASSIC: make the cat spin forever. You already know this one.",
+        how: ["Click the yellow EVENTS group and drag \"when green flag clicked\" into the middle area.",
+              "Click the orange CONTROL group and snap a \"forever\" block underneath it.",
+              "Click the blue MOTION group and drop \"turn ↻ 15 degrees\" INSIDE the forever block.",
+              "Click the green flag. The cat spins. You are officially coding."] },
+      { t: "Make the cat spin the OTHER way, twice as fast.",
+        how: ["Swap the \"turn ↻\" block for \"turn ↺\" — the one with the other arrow.",
+              "Click the 15 and type 30. Run it.",
+              "Now try 1. Try 90. Try 359. Every number in every block is yours to mess with — that's the whole game."] },
+      { t: "Green flag clicked → the cat says \"Hello, I'm Rascal's cat!\"",
+        how: ["Click the purple LOOKS group and grab \"say Hello! for 2 seconds\".",
+              "Snap it under a \"when green flag clicked\" block.",
+              "Click the word Hello! and type your own message. The cat says whatever you tell it to. Power."] },
+      { t: "Use a glide block to send the cat somewhere random. Run it 5 times.",
+        how: ["From MOTION, grab \"glide 1 secs to random position\".",
+              "Put it inside a \"forever\" block so the cat keeps wandering.",
+              "Run it five times. Different every time — that's what RANDOM means, and games are built on it."] },
+      { t: "Make the cat change colors every time you click it.",
+        how: ["From EVENTS, grab \"when this sprite clicked\" — a brand new script, separate from the first one.",
+              "From LOOKS, snap on \"change color effect by 25\".",
+              "Click the cat over and over. Disco cat. One sprite can have many scripts."] },
+      { t: "Add a backdrop from the library. Then draw your own.",
+        how: ["Bottom-right corner of the screen: click the \"Choose a Backdrop\" button (looks like a photo).",
+              "Pick one you like. Space is always correct.",
+              "Now click it again but choose the paintbrush to DRAW a backdrop. Bad art is allowed — finished beats perfect, house rule #1."] },
+      { t: "Make the cat follow the mouse pointer wherever it goes.",
+        how: ["Start with \"when green flag clicked\" + \"forever\".",
+              "Inside the forever: MOTION \"point towards mouse-pointer\" then \"move 5 steps\".",
+              "Run it and drag your mouse around. Change 5 to 10 for a fast cat. Now it's YOUR cat."] },
+      { t: "Add a sound that plays when the cat is clicked.",
+        how: ["Click the SOUNDS tab in the top-left, then \"Choose a Sound\".",
+              "Pick one (Meow is fine, an air horn is better). Go back to the CODE tab.",
+              "On your \"when this sprite clicked\" script, add the SOUND block \"start sound\"."] },
+      { t: "Save the project into the GAMES folder. Saving is mission-critical.",
+        how: ["File menu (top-left) → \"Save to your computer\".",
+              "Name it something real, like rascal-cat-v1 — not \"untitled\" and not \"asdfgh\".",
+              "Save it in the GAMES folder. Every coding session ends with a save. No exceptions, no tears later."] },
     ],
   },
   {
     key: "yellow", name: "Yellow Belt", color: "#f9a825", ink: "#111",
     motto: "Control the player — keys in, movement out.",
     missions: [
-      "Make the cat move right when the right arrow is pressed. Then add left, up, down.",
-      "Upgrade to smooth movement: a forever loop with \"if key pressed\" inside. Feel the difference.",
-      "Use \"if on edge, bounce\" so the cat can never escape the screen.",
-      "Make the cat jump when the space bar is pressed.",
-      "Make the cat fall back down after the jump, like gravity is real.",
-      "Animation: switch costumes while walking with \"next costume\". The cat comes alive.",
-      "Make the cat face the way it's moving — and fix the upside-down flip with rotation style.",
-      "Add a second sprite: a dog that slowly chases the cat forever.",
-      "Use the \"touching?\" block — when the dog touches the cat, the cat yells OUCH.",
-      "When the green flag is clicked, everything resets to its starting spot. Clean starts. Always.",
+      { t: "Move the cat with all four arrow keys.",
+        how: ["From EVENTS: \"when right arrow key pressed\" + MOTION \"change x by 10\".",
+              "Make three more scripts: left arrow (change x by -10), up arrow (change y by 10), down arrow (change y by -10).",
+              "x is left-right, y is up-down. Those are COORDINATES — real math that every real game uses."] },
+      { t: "Upgrade to smooth movement with a game loop.",
+        how: ["New script: \"when green flag clicked\" + \"forever\".",
+              "Inside: CONTROL \"if then\" with SENSING \"key right arrow pressed?\" in the diamond, and \"change x by 10\" inside.",
+              "Add three more if-blocks for the other keys, all inside the SAME forever loop.",
+              "Feel how much smoother that is? You just built a GAME LOOP. Every game on Earth has one."] },
+      { t: "Make it impossible for the cat to leave the screen.",
+        how: ["Add MOTION \"if on edge, bounce\" inside your forever loop.",
+              "Try your hardest to drive the cat off the screen. You can't. Good fences make good games."] },
+      { t: "Make the cat jump when the space bar is pressed.",
+        how: ["EVENTS \"when space key pressed\" + MOTION \"change y by 100\".",
+              "That's the up part. Coming back down is the next mission — one problem at a time."] },
+      { t: "Make the cat fall back down, like gravity is real.",
+        how: ["Easy way: after the jump, \"wait 0.3 seconds\" then \"change y by -100\".",
+              "Smooth way: \"repeat 10 [change y by 10]\" then \"repeat 10 [change y by -10]\".",
+              "Congratulations — you faked gravity. Mario fakes it the same way. Every platformer does."] },
+      { t: "Animate the walk with costume switching.",
+        how: ["Click the COSTUMES tab — the cat already has 2 walking poses.",
+              "In your movement loop, add LOOKS \"next costume\".",
+              "If it flickers like crazy, add \"wait 0.1 seconds\". Now the cat walks instead of sliding."] },
+      { t: "Make the cat face the way it's moving — without going upside-down.",
+        how: ["Before moving right add \"point in direction 90\". Before moving left, \"point in direction -90\".",
+              "The cat flips upside-down going left? Add MOTION \"set rotation style left-right\" once at the flag.",
+              "Now it looks where it's going, like a creature with a brain."] },
+      { t: "Add a dog that slowly chases the cat. Forever.",
+        how: ["Bottom-right: \"Choose a Sprite\" → pick the dog.",
+              "IMPORTANT: click the DOG first — each sprite has its OWN code.",
+              "Dog's script: \"when green flag clicked\" + forever + \"point towards Sprite1\" + \"move 2 steps\".",
+              "That's the big idea of sprites: everyone carries their own instructions."] },
+      { t: "When the dog touches the cat, the cat yells OUCH.",
+        how: ["On the CAT: forever + \"if [touching Dog?] then\" + \"say OUCH for 1 second\".",
+              "\"Touching?\" lives in the light-blue SENSING group.",
+              "SENSING is how sprites know about each other. Collisions, scores, danger — all SENSING."] },
+      { t: "Make everything reset to its starting spot when the flag is clicked.",
+        how: ["At the TOP of each sprite's flag script, add \"go to x:__ y:__\" with its home position.",
+              "Tip: drag the sprite where you want it FIRST — the block fills in those numbers automatically.",
+              "Click the flag 3 times in a row. Everything snaps home every time. Clean starts, always."] },
     ],
   },
   {
     key: "orange", name: "Orange Belt", color: "#ef6c00", ink: "#fff",
     motto: "Score, sound, and variables — now it's a game.",
     missions: [
-      "Make your first variable. Name it SCORE. Set it to 0 when the flag is clicked.",
-      "Add a coin sprite. Cat touches it → SCORE goes up by 1 and the coin jumps somewhere new.",
-      "Make a TIMER variable that counts down from 30. One second at a time.",
-      "When the timer hits 0, broadcast GAME OVER and show a game over screen.",
-      "Play a sound every time a coin is grabbed. Coins should feel good.",
-      "Loop background music for the whole game. Pick something that slaps.",
-      "Make a HIGH SCORE variable that keeps the best score even after a restart.",
-      "Make the dog speed up every 5 coins. This is called a difficulty curve. Real designers obsess over it.",
-      "Build a title screen: game waits until SPACE is pressed, then broadcasts START.",
-      "Show Dad the full loop: title → play → game over → play again. No broken parts allowed.",
+      { t: "Make your first variable: SCORE.",
+        how: ["Dark-orange VARIABLES group → \"Make a Variable\" → name it SCORE.",
+              "Under \"when green flag clicked\": \"set SCORE to 0\".",
+              "A variable is a box that remembers one number. Score, lives, speed, time — games are stacks of these boxes."] },
+      { t: "Add a coin. Touch it → score goes up, coin moves.",
+        how: ["Add a coin-ish sprite (the donut works, no judgment).",
+              "COIN's code: flag + forever + \"if [touching Sprite1?] then\" → \"change SCORE by 1\" + \"go to random position\".",
+              "Run it. Chase coins. Watch SCORE climb in the corner. This is officially a GAME now."] },
+      { t: "Add a TIMER counting down from 30.",
+        how: ["Make a variable TIMER. At the flag: \"set TIMER to 30\".",
+              "Then: forever + \"wait 1 seconds\" + \"change TIMER by -1\".",
+              "A countdown changes everything. Pressure is fun. That's a designer secret."] },
+      { t: "Timer hits 0 → GAME OVER screen.",
+        how: ["Inside the timer loop: \"if [TIMER = 0] then\" → EVENTS \"broadcast GAME-OVER\" + \"stop all\".",
+              "Make a sprite with big GAME OVER art. Give it: \"when I receive GAME-OVER\" → \"show\". (And \"hide\" at the flag.)",
+              "A broadcast is one sprite shouting to all the others. HUGE tool. You'll use it forever."] },
+      { t: "Coins make a sound when grabbed.",
+        how: ["On the coin sprite, pick a short sound in the SOUNDS tab (\"Collect\" is perfect).",
+              "Add \"start sound\" right after \"change SCORE by 1\".",
+              "Grab 10 coins. Feels better with sound, right? That's called GAME FEEL, and pros chase it hard."] },
+      { t: "Loop background music for the whole game.",
+        how: ["Click the STAGE (bottom-right, next to sprites). Stages can have code too.",
+              "Pick a music loop in its SOUNDS tab.",
+              "Stage code: flag + forever + \"play sound __ until done\".",
+              "\"Until done\" matters — plain \"start sound\" would stack 100 copies and melt your ears."] },
+      { t: "HIGH SCORE that survives a restart.",
+        how: ["Make HIGH SCORE. After scoring: \"if [SCORE > HIGH SCORE] then\" → \"set HIGH SCORE to SCORE\".",
+              "Do NOT set HIGH SCORE to 0 at the flag — that's the whole point of it.",
+              "Now there's a number to beat. Numbers to beat are why people say 'one more try' at midnight."] },
+      { t: "The dog speeds up every 5 coins. That's a difficulty curve.",
+        how: ["Make a variable SPEED, \"set SPEED to 2\" at the flag. Dog moves \"SPEED steps\" instead of 2.",
+              "After scoring: \"if [(SCORE mod 5) = 0] then\" → \"change SPEED by 0.5\". The green \"mod\" block means 'remainder' — ask Dad to show you once.",
+              "Easy start, hard finish. Designers obsess over this curve. Now you do too."] },
+      { t: "Build a title screen: press SPACE to start.",
+        how: ["Make a title backdrop with the game's name.",
+              "Flag script on the Stage: \"switch backdrop to Title\" + \"wait until [key space pressed?]\" + \"broadcast START\".",
+              "Change the game sprites to start \"when I receive START\" instead of the flag.",
+              "Menus are just broadcasts wearing a suit. You now know how every menu ever made works."] },
+      { t: "Demo day: show Dad the full loop, unbroken.",
+        how: ["Run the whole thing start to finish: title → play → game over → back to title.",
+              "Dad gets the controls for 5 minutes. If anything breaks, fix it and run it AGAIN.",
+              "Nothing ships broken. House rule. Belt earned when the loop survives Dad."] },
     ],
   },
   {
     key: "green", name: "Green Belt", color: "#2e7d32", ink: "#fff",
     motto: "Ship your first real game: Coin Chase 1.0.",
     missions: [
-      "Plan on paper first: who is the player, what is the goal, what is the danger, how do you win.",
-      "Name your game studio. Make a logo in the paint editor. Every great developer has one.",
-      "Build a 3-lives system with heart sprites that disappear when you get hit.",
-      "After a hit, make the player flash and be safe for 2 seconds. That's invincibility frames.",
-      "Use clone blocks to spawn 5 coins at once instead of one. Clones are a superpower.",
-      "Give the dog a patrol pattern instead of a straight chase. Smarter enemies, better game.",
-      "Win condition: 20 coins = YOU WIN screen with its own music.",
-      "Add juice: screen flash on hit, confetti on win. Games should FEEL alive.",
-      "Playtest: Dad plays for 5 minutes and finds one problem. Fix that problem.",
-      "SHIP IT: save the final file, put it on the TV, and run family game night with YOUR game.",
-      "Victory lap: add your game to the GAMES folder hall of fame with a title card.",
+      { t: "Plan on paper FIRST: player, goal, danger, win.",
+        how: ["Get real paper. Write four words and answer them: PLAYER (who), GOAL (what), DANGER (avoid what), WIN (when).",
+              "Draw one picture of what the screen looks like.",
+              "Pros call this a design doc. Yours is one page, theirs is fifty. Exact same job."] },
+      { t: "Name your game studio and make a logo.",
+        how: ["Pick a name: Rascal Games? Brick Lightning Studios? Your call, you have to live with it.",
+              "Draw the logo in the paint editor as a new sprite.",
+              "Show it on your title screen. Studios sign their work. So do you now."] },
+      { t: "Build a 3-lives system with hearts on screen.",
+        how: ["Make a LIVES variable, set to 3 at the flag. Add 3 heart sprites in the corner.",
+              "When the dog hits you: \"change LIVES by -1\" + broadcast LOST-LIFE. Heart #3 hides when it hears LOST-LIFE and LIVES = 2... heart #2 when LIVES = 1, and so on.",
+              "\"If [LIVES = 0] then broadcast GAME-OVER.\" Three chances. Mercy with a limit."] },
+      { t: "Invincibility flash after getting hit.",
+        how: ["Make a variable HURT. When hit: \"set HURT to 1\" → \"repeat 10 [hide, wait 0.1, show]\" → \"set HURT to 0\".",
+              "Change the dog's damage check to: \"if [touching cat? AND HURT = 0]\".",
+              "That flashing? It's in Mario, Zelda, Minecraft — every game. The pros call them i-frames. Now you have them."] },
+      { t: "Use clones to spawn 5 coins at once.",
+        how: ["On the coin: flag + \"repeat 5\" + CONTROL \"create clone of myself\". Then \"hide\" the original.",
+              "New script: \"when I start as a clone\" → \"go to random position\" + \"show\".",
+              "Move your touching/score code into the clone script, and \"delete this clone\" when grabbed.",
+              "One sprite, five coins, zero copy-paste. Clones are a superpower — this one took real focus."] },
+      { t: "Give the dog a patrol pattern instead of a dumb chase.",
+        how: ["Option A: forever + \"glide 2 secs to x:-150 y:0\" + \"glide 2 secs to x:150 y:0\" — a guard walking his post.",
+              "Option B: \"move 3 steps\" + \"if on edge, bounce\" for a pacing enemy.",
+              "A predictable enemy is FAIR — the player can learn it and beat it. Fair is fun. Random chasing is just rude."] },
+      { t: "Win condition: 20 coins = YOU WIN screen.",
+        how: ["After scoring: \"if [SCORE = 20] then\" → \"broadcast YOU-WIN\".",
+              "Make a YOU WIN backdrop or sprite with its own happy music \"when I receive YOU-WIN\".",
+              "Losing has a screen, so winning needs a BETTER one. Always reward the player harder than you punish them."] },
+      { t: "Add juice: flash on hit, confetti on win.",
+        how: ["On hit: \"change color effect by 50\" then back to 0 after 0.2 seconds — a damage flash.",
+              "Or screen shake: 4 quick \"change x by 10 / -10\" moves on the backdrop sprite.",
+              "On win: a confetti sprite that clones itself 30 times and falls. Same game + juice = feels twice as good. Industry secret."] },
+      { t: "Playtest: Dad plays 5 minutes, you fix the biggest problem he finds.",
+        how: ["Dad plays. You WATCH. No coaching, no grabbing the mouse — bite your tongue.",
+              "Write down where he got confused, stuck, or where it broke.",
+              "Fix the ONE biggest problem. Watch → learn → fix: that's a real dev cycle, and you just ran one."] },
+      { t: "SHIP IT: family game night with YOUR game on the TV.",
+        how: ["File → \"Save to your computer\" → GAMES folder → name it CoinChase-v1.",
+              "Open it on the TV. You run the show: explain the controls, run the tournament.",
+              "Shipped beats perfect. You just shipped a video game. Welcome to the club — membership is forever."] },
+      { t: "Add it to the GAMES folder hall of fame with a title card.",
+        how: ["Make a title card: game name, studio logo, finish date.",
+              "Keep every shipped game in the GAMES folder. Never delete a shipped game.",
+              "That folder is your resume now. It only grows."] },
     ],
   },
   {
     key: "blue", name: "Blue Belt", color: "#1565c0", ink: "#fff",
     motto: "Levels, worlds, and a boss fight.",
     missions: [
-      "Use backdrops as levels: reach the right edge of level 1 → level 2 appears.",
-      "Make a LEVEL variable that controls how fast enemies are and how many coins spawn.",
-      "Build a moving platform the player can ride.",
-      "Build a simple platformer engine: gravity, jumping, and standing on the ground.",
-      "Add spikes. Touch them and the level restarts. Fair but mean.",
-      "Hide a key in the level that opens a locked door. Players love keys.",
-      "Checkpoints: die after a checkpoint, restart at the checkpoint. Mercy is good design.",
-      "BOSS LEVEL: a big enemy with its own health bar that takes 5 hits.",
-      "Hide a secret room or easter egg somewhere. Tell no one. Let them find it.",
-      "Add a pause button. Even legends need snack breaks.",
-      "Ship game #2: a three-level platformer with a boss. Family plays it on the TV.",
+      { t: "Use backdrops as levels: walk off the right edge → Level 2.",
+        how: ["Player's loop: \"if [x position > 230] then\" → \"broadcast NEXT-LEVEL\" + \"go to x:-200\".",
+              "Stage: \"when I receive NEXT-LEVEL\" → \"switch backdrop to Level2\".",
+              "One screen became two screens. That's not a level anymore — that's a WORLD."] },
+      { t: "A LEVEL variable that controls enemy speed and coin count.",
+        how: ["Make LEVEL, set to 1 at the flag. \"change LEVEL by 1\" on NEXT-LEVEL.",
+              "Dog speed: use the green operator \"LEVEL * 2\" inside the move block.",
+              "Coin spawns: \"repeat (LEVEL * 3)\" clones. One variable steering the whole game — big-brain move."] },
+      { t: "Build a moving platform the player can ride.",
+        how: ["Make a platform sprite: forever + glide right, glide left.",
+              "On the player: \"if [touching Platform?] then change x by\" the platform's current speed.",
+              "This one is HARD. Two tries minimum. Bugs are bosses — house rule #2. Fight them."] },
+      { t: "Build a real platformer engine: gravity, ground, jumping.",
+        how: ["Make YSPEED. Player loop: \"change y by YSPEED\" + \"change YSPEED by -1\". That's real gravity.",
+              "\"If [touching Ground?] then\": \"set YSPEED to 0\" and nudge up out of the floor (\"change y by 1\" until free).",
+              "Jump: \"if [space pressed AND touching Ground?] then set YSPEED to 12\".",
+              "Hardest mission so far — the 15-minute rule applies (house rule #3). Every platformer you've ever played does exactly this."] },
+      { t: "Add spikes that restart the level. Fair but mean.",
+        how: ["Draw a spike strip sprite along the floor gaps.",
+              "Player touches spikes → \"broadcast RESTART-LEVEL\" → player returns to start, coins reset.",
+              "Good spikes make the player think 'my fault, one more try' — never 'this game cheated.'"] },
+      { t: "Hide a key that opens a locked door.",
+        how: ["Key sprite: touched → \"hide\" + \"set HAS-KEY to 1\".",
+              "Door sprite: \"if [touching player AND HAS-KEY = 1]\" → open (next level). Otherwise → \"say LOCKED\".",
+              "Players LOVE keys. Nobody knows why. Use this power wisely."] },
+      { t: "Checkpoints: die late, restart late.",
+        how: ["Add a checkpoint flag mid-level. Touch it → \"set CHECKPOINT-X / CHECKPOINT-Y\" to its position (and change its costume so it looks lit).",
+              "On death → \"go to x: CHECKPOINT-X y: CHECKPOINT-Y\" instead of the level start.",
+              "Mercy is good design. Players forgive a hard game. They quit an unfair one."] },
+      { t: "BOSS LEVEL: a big enemy that takes 5 hits.",
+        how: ["Make a big enemy with BOSS-HP = 5. Show its health with a \"say\" bubble or a row of squares.",
+              "Jump on its head → \"change BOSS-HP by -1\" + bounce the player up (\"set YSPEED to 12\") + boss flashes.",
+              "BOSS-HP = 0 → victory broadcast, boss disappears dramatically. Every hit needs to FEEL like a hit — flash, sound, knockback."] },
+      { t: "Hide a secret. Tell no one.",
+        how: ["An invisible warp, a hidden room behind a wall, a funny costume change — your pick.",
+              "Make it findable but not obvious: a suspicious gap, an off-color brick.",
+              "Secrets are why people play a game twice. TELL NO ONE. Let them find it."] },
+      { t: "Add a pause button. Even legends need snacks.",
+        how: ["Variable PAUSED. \"When P key pressed\" → flip it: \"set PAUSED to (1 - PAUSED)\" — ask Dad about that trick.",
+              "Wrap the inside of every forever loop with \"if [PAUSED = 0] then\".",
+              "Snacks happen. Bathroom breaks happen. Plan for them like a pro."] },
+      { t: "Ship game #2: a three-level platformer with a boss.",
+        how: ["Full run, start to finish, no crashes: three levels, checkpoints, boss, win screen.",
+              "Save as Platformer-v1 in the GAMES folder. Title card. Hall of fame.",
+              "TV night #2. You're a two-game studio now. Studios with two shipped games are rarer than you'd think."] },
     ],
   },
   {
     key: "purple", name: "Purple Belt", color: "#6a1b9a", ink: "#fff",
     motto: "See the code — the bridge from blocks to JavaScript.",
     missions: [
-      "Open MakeCode Arcade. New dojo, same ideas. Make a sprite and move it with arrows in 10 minutes.",
-      "Find the magic switch: flip your blocks into JavaScript view. Look at what YOU built as real code.",
-      "Read your JavaScript out loud to Dad. Every line. It's just your blocks wearing a suit.",
-      "Change one number in JavaScript view instead of blocks view. Flip back. The blocks changed too.",
-      "Write your first typed line: change the player speed in JavaScript without touching blocks.",
-      "Declare a variable in code: let score = 0 — same idea as Scratch, different costume.",
-      "Write an if statement in JavaScript: touching a coin makes the score go up.",
-      "Write a function in JavaScript and call it. A function is just a custom block.",
-      "Build a mini-game where at least half the work was done in JavaScript view.",
-      "Draw your own pixel-art hero in the sprite editor. No more borrowed cats.",
-      "Compose a victory tune in the music editor. Three seconds of glory.",
-      "Ship game #3: a MakeCode Arcade game — started in blocks, finished in code.",
+      { t: "Open MakeCode Arcade. Moving character in under 10 minutes.",
+        how: ["Go to arcade.makecode.com → New Project. New dojo, same ideas.",
+              "SPRITES group: \"set mySprite to sprite of kind Player\" — then click the gray box to draw or pick a character.",
+              "CONTROLLER group: \"move mySprite with buttons\". Done. Two blocks. Beat the clock."] },
+      { t: "Find the magic switch: flip your blocks into JavaScript.",
+        how: ["Top center of the screen: a toggle that says Blocks | JavaScript.",
+              "Click JavaScript. Don't touch anything. Just LOOK.",
+              "That wall of text? YOU wrote it. Those are your blocks in their true form. Blocks were never the real thing — they were training wheels for this."] },
+      { t: "Read your JavaScript out loud to Dad. Every line.",
+        how: ["In JavaScript view, read each line and guess what it does BEFORE Dad confirms.",
+              "sprites.create(...) = 'make a sprite'. controller.moveSprite(...) = 'arrows move it'.",
+              "It's English in a trench coat. Once you see that, code stops being scary forever."] },
+      { t: "Change a number in JavaScript view. Watch the blocks change too.",
+        how: ["In JS view, find any number. Change it. Run the game.",
+              "Flip back to Blocks view. The block updated itself.",
+              "Same program, two views — like the same LEGO build seen from the front and the back."] },
+      { t: "First typed edit: change the player speed in code.",
+        how: ["In JS view find: controller.moveSprite(mySprite, 100, 100).",
+              "Change the 100s to 200. Run it. Speed demon.",
+              "You just edited real JavaScript on purpose. Remember this day. We will."] },
+      { t: "Declare a variable in code: let score = 0",
+        how: ["In JS view, type on a new line: let score = 0",
+              "\"let\" makes a variable — the same as Scratch's orange blocks, no mouse needed.",
+              "Add score += 1 somewhere (that means 'score goes up by 1') and find a way to show it with info.setScore(score)."] },
+      { t: "Write an if statement in JavaScript.",
+        how: ["Use MakeCode's overlap event, then add inside it: if (true) { info.changeScoreBy(1) } — then make the condition real.",
+              "Curly braces { } mean 'everything inside the block' — the JS version of a C-shaped Scratch block.",
+              "if/then in blocks, if ( ) { } in code. Identical twins, different outfits."] },
+      { t: "Write a function and call it by name.",
+        how: ["Type: function spawnCoin() { } and put sprite-creating code inside the braces.",
+              "Call it by typing spawnCoin() on its own line. The code runs.",
+              "A function is a custom block you summon by name. Professionals build EVERYTHING out of these."] },
+      { t: "Build a mini-game where HALF the work was typed.",
+        how: ["Start a collector game in Blocks: player, coins, score.",
+              "Flip to JS and finish there: the countdown, the game-over, the win message — typed by hand.",
+              "Half blocks, half code. The bridge is real and you're standing on it."] },
+      { t: "Draw your own pixel-art hero. No more borrowed cats.",
+        how: ["Click your sprite's image box — the pixel editor opens.",
+              "Draw YOUR hero, 16x16. Every pixel is a decision. Zoom in. Take your time.",
+              "Your art + your code = your game. All the way down."] },
+      { t: "Compose a victory tune in the music editor.",
+        how: ["MUSIC group → grab a \"play melody\" block → click the melody to open the composer.",
+              "Write 3 seconds of glory. Play it when the player wins.",
+              "A bad song played at the perfect moment is a great song. Timing beats talent."] },
+      { t: "Ship game #3: started in blocks, finished in code.",
+        how: ["A complete Arcade game: start, play, win, lose — no dead ends.",
+              "Download the file or use the share link. Run it on the TV.",
+              "Game #4 is coming and it's PURE code. Rest up, slugger."] },
     ],
   },
   {
     key: "brown", name: "Brown Belt", color: "#5d4037", ink: "#fff",
     motto: "Real JavaScript — no blocks allowed.",
     missions: [
-      "Start a new MakeCode game in JavaScript-only view. The blocks are gone. You're ready.",
-      "Write a for loop that spawns 10 enemies. Ten lines of work in three lines of code.",
-      "Use an array to keep a list of high scores. Arrays are lists. Lists run the world.",
-      "Write a function with an input: spawnEnemy(speed). Call it with different speeds.",
-      "Use random numbers in code to drop loot. Sometimes a gem, usually nothing. That's loot.",
-      "Build menu, playing, and game-over states in pure code with a state variable.",
-      "Open a finished example game and explain three parts of its code to Dad.",
-      "DEBUG DUEL: Dad breaks your game in three places on purpose. Find and fix all three.",
-      "Typing training: hit 15 words per minute. Fast fingers, fast ideas.",
-      "Keep a CHANGELOG: every session, write one line about what changed. Pros do exactly this.",
-      "Build Rock-Paper-Scissors entirely in typed code. No sprites needed. Pure logic.",
-      "Ship game #4: 100% typed JavaScript, zero blocks. Frame this one.",
+      { t: "New game, JavaScript view only. The blocks are gone.",
+        how: ["New project → flip to JavaScript immediately → STAY there the whole belt.",
+              "Build a player sprite + movement from memory, typed: sprites.create, controller.moveSprite.",
+              "Stuck on spelling? MakeCode suggests as you type — pros lean on autocomplete every single day."] },
+      { t: "Write a for loop that spawns 10 enemies.",
+        how: ["Type: for (let i = 0; i < 10; i++) { spawnEnemy() }",
+              "Read it out loud: 'count i from 0 to 9, run the middle part each time.'",
+              "Ten enemies, three lines. Loops are why programmers look lazy and are not."] },
+      { t: "Use an array — a list in one variable.",
+        how: ["Type: let highScores = [50, 42, 31]",
+              "Get one out with highScores[0] — counting starts at ZERO, always, forever, just accept it.",
+              "Add new ones with highScores.push(newScore). Lists run the world: inventories, levels, enemies — all arrays."] },
+      { t: "Write a function with an input: spawnEnemy(speed).",
+        how: ["Type: function spawnEnemy(speed) { } — use the word speed inside as the enemy's velocity.",
+              "Call spawnEnemy(50) for a slow one, spawnEnemy(120) for a nightmare.",
+              "One recipe, infinite flavors. That's what inputs (pros say 'parameters') are for."] },
+      { t: "Random loot drops in code.",
+        how: ["Type: let roll = randint(1, 10)",
+              "Then: if (roll == 10) { dropGem() } — a 1-in-10 gem. (Note: == means 'is equal?', = means 'set'.)",
+              "Loot drops, critical hits, mystery boxes — all just random numbers wearing costumes."] },
+      { t: "Build menu / playing / game-over states in pure code.",
+        how: ["Type: let state = \"menu\" — then guard your update code with if (state == \"playing\") { }.",
+              "Buttons move between states: menu → playing → gameover → menu.",
+              "Every real game is a state machine. Yours officially is one now."] },
+      { t: "Read a stranger's code and explain 3 parts to Dad.",
+        how: ["Open a finished example game from MakeCode's gallery and flip it to JS view.",
+              "Find 3 parts and explain each to Dad: 'this line makes X happen.'",
+              "Reading other people's code is HALF of every developer job on Earth. True story."] },
+      { t: "DEBUG DUEL: Dad breaks your game in 3 places. Find them all.",
+        how: ["Dad secretly changes 3 things: a number, a condition, a name.",
+              "Hunt: read the error messages, test ONE thing at a time, narrow it down like a detective.",
+              "Fix all three and you win. This is the best detective game ever invented. Devs play it daily."] },
+      { t: "Typing training: 15 words per minute.",
+        how: ["Pick a typing site with Dad. Ten minutes a day, every coding day.",
+              "Target: 15 wpm without looking at your hands.",
+              "Fast fingers, fast ideas. The keyboard is your controller now — learn the combos."] },
+      { t: "Keep a CHANGELOG like a pro.",
+        how: ["Make CHANGELOG.txt in your game's folder in GAMES.",
+              "Every session, one line: the date + what changed. 'June 14 — fixed double-jump bug.'",
+              "Real studios do exactly this, just with more coffee. Future-you will thank present-you."] },
+      { t: "Build Rock-Paper-Scissors entirely in code.",
+        how: ["Computer's pick: randint(1, 3) — 1 rock, 2 paper, 3 scissors. Player picks with three buttons.",
+              "A chain of if / else if decides the winner. Track wins across rounds.",
+              "Zero sprites required. This is the part of games that's pure LOGIC — the engine under the paint."] },
+      { t: "Ship game #4: 100% typed, zero blocks. Frame this one.",
+        how: ["A complete game, every line typed by you, blocks never opened.",
+              "Play it on the TV. Tell everyone it's hand-typed code. Watch their faces.",
+              "Seriously — screenshot the code and frame it. Belt's almost black."] },
     ],
   },
   {
     key: "red", name: "Red Belt", color: "#c8102e", ink: "#fff",
     motto: "Game designer — original ideas only.",
     missions: [
-      "Invent an ORIGINAL game. Not a copy. Write a one-page design doc: hook, rules, win, lose.",
-      "Paper prototype: play your game with paper, dice, or cards before writing any code.",
-      "Build the core loop — the one thing players do over and over — in one week.",
-      "Design the difficulty curve on purpose: easy start, fair middle, hard finish.",
-      "UX test: Mom plays with ZERO help from you. Watch where she gets stuck. Say nothing.",
-      "Build the tutorial INTO the game. If you have to explain it out loud, the game isn't done.",
-      "Sound design pass: every action the player does makes a sound that fits.",
-      "Art pass: one style, every screen. No mixed-up sprites. Consistency is what pro looks like.",
-      "Recruit 3 playtesters. Collect their complaints. Change the 2 biggest ones.",
-      "Make a poster and a one-line pitch for your game. Marketing is part of shipping.",
-      "VERSION 1.0 RELEASE NIGHT: the family plays your original game on the TV.",
-      "Postmortem with Dad: what worked, what was hard, what you'd do differently. Write it down.",
+      { t: "Invent an ORIGINAL game. One-page design doc.",
+        how: ["One page: the HOOK (one sentence that makes people say 'ooh'), the rules, how you win, how you lose.",
+              "Not a copy of anything you've played. YOUR idea, from your weird and wonderful brain.",
+              "If you can't pitch it in one sentence, it's not sharp enough yet. Keep grinding the edge."] },
+      { t: "Paper prototype: play your game before you build it.",
+        how: ["Build it with paper, dice, coins, LEGO bricks — anything physical.",
+              "Play it with Dad twice. Find a rule that felt bad and change it.",
+              "A bad rule found on paper costs 5 minutes. Found in code, it costs a week. Pros prototype on paper first."] },
+      { t: "Build the core loop in one week. Nothing else.",
+        how: ["The core loop = the ONE thing players do over and over: jump? collect? dodge? build?",
+              "Code only that this week. No menus, no music, no extras.",
+              "If the loop is fun naked, the game will be fun dressed. If it's boring naked, no music can save it."] },
+      { t: "Design the difficulty curve on purpose.",
+        how: ["Map it: minute 1 = can't lose. Minute 3 = fair fight. Minute 5 = sweating.",
+              "Tune your actual numbers (speed, spawn rate, timers) to match that map.",
+              "Too easy is boring. Too hard is rage. The thin line between them is your job now."] },
+      { t: "The Mom Test: she plays, you say NOTHING.",
+        how: ["Mom plays your game cold. You stay silent — biting your tongue IS the mission.",
+              "Watch where she gets stuck or confused. Write every spot down.",
+              "If she needed help, the GAME failed — not Mom. Fix the game, not the player."] },
+      { t: "Build the tutorial INTO the game.",
+        how: ["Level 1 IS the tutorial: a safe spot that teaches jumping, then collecting, then dodging — one at a time.",
+              "Show a small hint the first time each new thing appears. Then get out of the way.",
+              "Great games never hand you a manual. They ARE the manual."] },
+      { t: "Sound design pass: every action has a sound that fits.",
+        how: ["List every player action: jump, collect, hit, win, lose. Give each a sound that FEELS right.",
+              "Quiet matters too — don't blast something every half-second.",
+              "Test: close your eyes while someone plays. You should still know what's happening."] },
+      { t: "Art pass: one style, every screen.",
+        how: ["Pick ONE style: same color palette, same pixel size, same vibe everywhere.",
+              "Redraw anything that looks borrowed or off-style. Yes, even if it took an hour the first time.",
+              "Consistency is what 'professional' actually looks like. Not fancy — consistent."] },
+      { t: "Three playtesters. Fix the two biggest complaints.",
+        how: ["Recruit three people: cousin, friend, grandma — anyone with hands.",
+              "Collect every complaint in writing. NO DEFENDING. Just nod and write.",
+              "Fix the 2 biggest. Feedback is treasure that arrives disguised as insults."] },
+      { t: "Make the poster and the one-line pitch.",
+        how: ["One poster: title, hero art, one killer sentence. Paint editor or markers, your pick.",
+              "Test it on yourself: does the poster make YOU want to play it? If not, iterate.",
+              "Marketing is part of shipping. The best game nobody hears about is a tree falling in an empty forest."] },
+      { t: "VERSION 1.0 RELEASE NIGHT.",
+        how: ["Schedule it like it matters — because it does. Snacks. Whole family. Big TV.",
+              "You present: 'I made this. Here's how you play.' Then you run the night.",
+              "Studios throw parties for 1.0. So do we. This is yours."] },
+      { t: "Postmortem with Dad: worked / hard / next.",
+        how: ["Three lists: what WORKED, what was HARD, what you'd do DIFFERENTLY.",
+              "Write them down and keep them with the design doc.",
+              "Every studio does this after every game. The next game always starts smarter because of it."] },
     ],
   },
   {
     key: "black", name: "Black Belt", color: "#111", ink: "#f5c04a",
     motto: "The real deal — a real engine, a real shipped game.",
     missions: [
-      "Pick your engine with Dad: Godot or Phaser. Take the tour of each. Choose your weapon.",
-      "Install it on the dev machine. Get Hello World on screen. Hardest step of any project.",
-      "Complete the engine's official first-2D-game tutorial. All the way. No skipping.",
-      "Rebuild your Red Belt game in the real engine. Same game, professional tools.",
-      "Add one thing Scratch could never do: real saving, particle effects, or a huge map.",
-      "Organize the project like a pro: folders for art, sound, code. No junk drawer projects.",
-      "Put your code on GitHub with Dad. Now it's backed up and versioned forever.",
-      "Export a real build — a playable file that runs without the editor.",
-      "Install your game on the living room TV box so anyone can play it any time.",
-      "Teach it back: show a friend or cousin how to make the cat spin. The circle completes.",
-      "Design your NEXT game — bigger scope, real plan, like a pro starting a real project.",
-      "BLACK BELT CEREMONY: Dad hands you the belt. 100%. You are a game developer. Believe me.",
+      { t: "Choose your weapon with Dad: Godot or Phaser.",
+        how: ["Watch a 10-minute intro video for each, with Dad.",
+              "Godot = the professional 2D/3D editor (free, open source). Phaser = JavaScript games in the browser — your typed JS carries straight over.",
+              "Pick whichever makes you want to start NOW. There is no wrong door."] },
+      { t: "Install it. Get Hello World on screen.",
+        how: ["Install the engine on the dev machine with Dad.",
+              "Get ANYTHING on screen: a sprite, a shape, the words Hello World.",
+              "Day one in a professional tool is the hardest day of any project. Survive it and the rest is downhill."] },
+      { t: "Complete the official first-game tutorial. No skipping.",
+        how: ["Godot: the official 'Your first 2D game' tutorial. Phaser: the official 'Making your first game' guide.",
+              "Every step, to the end — even the boring parts. ESPECIALLY the boring parts.",
+              "A tutorial is a belt from another dojo. Earn it properly."] },
+      { t: "Rebuild your Red Belt game with pro tools.",
+        how: ["Same design doc, same game — rebuilt in the engine.",
+              "Notice what's harder (the setup) and what's suddenly easy (almost everything else).",
+              "Rebuilding a thing you know is the fastest way to learn a tool you don't. Old trick. Works every time."] },
+      { t: "Add one thing Scratch could NEVER do.",
+        how: ["Pick one: real save files, particle explosions, or a map twenty screens wide.",
+              "Build it. Feel the ceiling disappear.",
+              "This is WHY pros use engines. Now you don't just know it — you've held it."] },
+      { t: "Organize the project like a professional.",
+        how: ["Folders: /art /sound /code /levels. Everything in its place.",
+              "Name files so future-you understands them: player.gd (or player.js) — never finalfinal2.",
+              "A junk-drawer project dies around file 50. Yours won't, because you won't let it."] },
+      { t: "Put your code on GitHub with Dad.",
+        how: ["Dad sets up the repository. You learn two words: COMMIT (save point) and PUSH (upload).",
+              "Commit with a one-line message every session — your CHANGELOG habit, leveled up.",
+              "Backed up, versioned, forever. Real developers' work lives on GitHub. Yours does now too."] },
+      { t: "Export a real build that runs without the editor.",
+        how: ["Godot: export a Windows .exe. Phaser: build the web folder.",
+              "Run it on a machine that has NO editor installed. It just... runs.",
+              "That file is a real video game that exists in the world because you made it. Sit with that for a second."] },
+      { t: "Install your game on the living room TV box.",
+        how: ["Copy the build to the TV box with Dad. Make a shortcut so ANYONE can launch it.",
+              "No editor, no setup, no help. Walk up, click, play.",
+              "Your game lives where the family lives now. Permanent exhibit."] },
+      { t: "Teach it back: show someone how to make the cat spin.",
+        how: ["A friend or cousin. TurboWarp. The spinning cat. You're the sensei now.",
+              "Let THEM drive the mouse. Guide with words, never grab.",
+              "One year ago, that was you. The circle is complete."] },
+      { t: "Design your NEXT game like a pro starting a real project.",
+        how: ["Full plan: design doc, art list, level list, rough schedule.",
+              "Bigger scope this time — you've earned the right to be ambitious.",
+              "Pros start every project knowing what shipping costs. You're the only kid you know who knows that too."] },
+      { t: "BLACK BELT CEREMONY. 100%. Game developer.",
+        how: ["Dad's call, Dad's ceremony. Look at the rack: nine belts. Look at the folder: five shipped games.",
+              "The belt is handed over. Photos are mandatory. Brick rain is guaranteed.",
+              "You're a game developer. Not 'someday.' Now. Believe me."] },
     ],
   },
 ];
@@ -567,11 +896,12 @@ function loadDone() {
 function saveDone(set) { localStorage.setItem(LS_DONE, JSON.stringify([...set])); }
 
 const done = loadDone();
+const openHow = new Set();
 
 function missionId(beltKey, idx) { return beltKey + "_" + (idx + 1); }
 function allMissions() {
   const out = [];
-  BELTS.forEach(b => b.missions.forEach((m, i) => out.push({ id: missionId(b.key, i), belt: b, text: m })));
+  BELTS.forEach(b => b.missions.forEach((m, i) => out.push({ id: missionId(b.key, i), belt: b, m })));
   return out;
 }
 const MISSIONS = allMissions();
@@ -583,13 +913,13 @@ function beltDoneCount(belt) {
 function beltEarned(belt) { return beltDoneCount(belt) === belt.missions.length; }
 function earnedBelts() { return BELTS.filter(beltEarned).length; }
 function currentBelt() { return BELTS.find(b => !beltEarned(b)) || BELTS[BELTS.length - 1]; }
-function nextMission() { return MISSIONS.find(m => !done.has(m.id)); }
+function nextMission() { return MISSIONS.find(x => !done.has(x.id)); }
 
 /* ============================================================
    RENDER
    ============================================================ */
 function render() {
-  const doneCount = MISSIONS.filter(m => done.has(m.id)).length;
+  const doneCount = MISSIONS.filter(x => done.has(x.id)).length;
   const pct = Math.round((doneCount / TOTAL) * 100);
   const cur = currentBelt();
   const next = nextMission();
@@ -662,11 +992,28 @@ function renderChart() {
         + (next && next.id === id ? " next" : "");
       row.innerHTML = `
         <div class="chk"></div>
-        <div class="m-name">${m}</div>
+        <div class="m-name">${m.t}</div>
+        <button class="how-btn${openHow.has(id) ? " open" : ""}" aria-expanded="${openHow.has(id)}">How</button>
         <div class="m-xp">+1%</div>
       `;
       row.addEventListener("click", () => toggleMission(id));
+      row.querySelector(".how-btn").addEventListener("click", (e) => {
+        e.stopPropagation();
+        if (openHow.has(id)) openHow.delete(id);
+        else openHow.add(id);
+        renderChart();
+      });
       sec.appendChild(row);
+
+      if (openHow.has(id)) {
+        const panel = document.createElement("div");
+        panel.className = "how-panel";
+        panel.innerHTML = `
+          <div class="how-title">★ Sensei Instructions</div>
+          <ol>${m.how.map(s => `<li>${s}</li>`).join("")}</ol>
+        `;
+        sec.appendChild(panel);
+      }
     });
     chart.appendChild(sec);
   });
@@ -677,7 +1024,7 @@ function renderChart() {
    ============================================================ */
 function toggleMission(id) {
   const beltsBefore = earnedBelts();
-  const doneBefore = MISSIONS.filter(m => done.has(m.id)).length;
+  const doneBefore = MISSIONS.filter(x => done.has(x.id)).length;
 
   if (done.has(id)) done.delete(id);
   else done.add(id);
@@ -685,7 +1032,7 @@ function toggleMission(id) {
   render();
 
   const beltsAfter = earnedBelts();
-  const doneAfter = MISSIONS.filter(m => done.has(m.id)).length;
+  const doneAfter = MISSIONS.filter(x => done.has(x.id)).length;
 
   if (doneAfter === TOTAL && doneBefore < TOTAL) {
     fireToast("★ 100% · BLACK BELT · GAME DEVELOPER ★");
